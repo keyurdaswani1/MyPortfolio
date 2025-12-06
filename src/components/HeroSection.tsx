@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import profileImage from "@/assets/profile-placeholder.png";
+import profileImage from "@/assets/keyur-profile.png";
 import heroPattern from "@/assets/hero-pattern.png";
 
 const HeroSection = () => {
