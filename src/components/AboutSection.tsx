@@ -4,8 +4,7 @@ import { Briefcase, Award, TrendingUp } from "lucide-react";
 
 const stats = [
   { icon: Briefcase, value: 5, suffix: "+", label: "Years Experience" },
-  { icon: TrendingUp, value: 15, suffix: "%", label: "Demand Forecasting Improvement" },
-  { icon: Award, value: 17, suffix: "%", label: "Cost Savings Delivered" },
+  { icon: Award, value: 25, suffix: "+", label: "End-to-End Projects Delivered" },
 ];
 
 const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) => {
