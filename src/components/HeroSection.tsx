@@ -142,29 +142,6 @@ const HeroSection = () => {
                 />
               </div>
 
-              {/* Floating badges */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1 }}
-                className="absolute -left-4 top-1/4 bg-card shadow-lg rounded-lg px-4 py-2 border border-border"
-              >
-                <span className="text-xs font-medium text-muted-foreground">Tech Stack</span>
-                <div className="flex gap-1 mt-1">
-                  <span className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded">Python</span>
-                  <span className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded">SQL</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2 }}
-                className="absolute -right-4 bottom-1/4 bg-card shadow-lg rounded-lg px-4 py-2 border border-border"
-              >
-                <span className="text-xs font-medium text-muted-foreground">Expertise</span>
-                <div className="text-sm font-semibold text-primary mt-1">Machine Learning</div>
-              </motion.div>
             </div>
           </motion.div>
         </div>
