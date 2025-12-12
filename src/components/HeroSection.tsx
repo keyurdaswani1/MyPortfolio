@@ -92,9 +92,12 @@ const HeroSection = () => {
               <Button
                 variant="hero-outline"
                 size="lg"
-                onClick={() => handleNavClick("#contact")}
+                asChild
               >
-                Contact Me
+                <a href="/resume.pdf" download>
+                  <Download className="mr-1" />
+                  Download Resume
+                </a>
               </Button>
             </motion.div>
 
@@ -110,12 +113,8 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-gradient">15%</div>
-                <div className="text-sm text-muted-foreground">Demand Forecasting</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gradient">17%</div>
-                <div className="text-sm text-muted-foreground">Cost Savings</div>
+                <div className="text-3xl font-bold text-gradient">25+</div>
+                <div className="text-sm text-muted-foreground">Projects Delivered</div>
               </div>
             </motion.div>
           </motion.div>
