@@ -1,7 +1,10 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Github, Brain, Shield, MapPin } from "lucide-react";
+import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import starbucksImage from "@/assets/starbucks-sentiment.png";
+import creditRiskImage from "@/assets/credit-risk-analysis.png";
+import torontoCrimeImage from "@/assets/toronto-crime-indicators.png";
 
 const projects = [
   {
@@ -9,17 +12,15 @@ const projects = [
     description:
       "Analyzed customer reviews using PCA and KMeans clustering to identify optimal retail expansion locations and customer preferences.",
     tags: ["Python", "Scikit-learn", "PCA", "KMeans"],
-    icon: Brain,
-    color: "from-green-500 to-emerald-600",
-    github: "https://github.com/keyurdaswani1/starbucks-sentiment-analysis",
+    image: starbucksImage,
+    github: "https://github.com/keyurdaswani1/starbucks_sentiment_analysis",
   },
   {
     title: "Credit Risk Analysis",
     description:
       "Built risk classification models using XGBoost and Random Forest to predict loan defaults and assess creditworthiness.",
     tags: ["Python", "XGBoost", "Random Forest", "Machine Learning"],
-    icon: Shield,
-    color: "from-blue-500 to-indigo-600",
+    image: creditRiskImage,
     github: "https://github.com/keyurdaswani1/credit-risk-analysis",
   },
   {
@@ -27,9 +28,8 @@ const projects = [
     description:
       "Developed interactive SQL/DAX dashboards visualizing public safety trends and crime patterns across Toronto neighborhoods.",
     tags: ["Power BI", "SQL", "DAX", "Data Visualization"],
-    icon: MapPin,
-    color: "from-purple-500 to-pink-600",
-    github: "https://github.com/keyurdaswani1/toronto-crime-indicators",
+    image: torontoCrimeImage,
+    github: "https://github.com/keyurdaswani1/Major_Crime_Indicators_Capstone_Project",
   },
 ];
 
@@ -60,7 +60,6 @@ const ProjectsSection = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => {
-              const Icon = project.icon;
               return (
                 <motion.div
                   key={project.title}
@@ -70,11 +69,12 @@ const ProjectsSection = () => {
                   className="group bg-card rounded-xl border border-border overflow-hidden hover-lift"
                 >
                   {/* Project Header */}
-                  <div
-                    className={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}
-                  >
-                    <div className="absolute inset-0 opacity-20 node-pattern" />
-                    <Icon className="w-16 h-16 text-primary-foreground/90 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="h-48 relative overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
 
                   {/* Content */}
