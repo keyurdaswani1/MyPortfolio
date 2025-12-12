@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ExternalLink, Github, Brain, Shield, MapPin } from "lucide-react";
+import { Github, Brain, Shield, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
@@ -11,7 +11,7 @@ const projects = [
     tags: ["Python", "Scikit-learn", "PCA", "KMeans"],
     icon: Brain,
     color: "from-green-500 to-emerald-600",
-    github: "https://github.com/keyurdaswani",
+    github: "https://github.com/keyurdaswani1/starbucks-sentiment-analysis",
   },
   {
     title: "Credit Risk Analysis",
@@ -20,7 +20,7 @@ const projects = [
     tags: ["Python", "XGBoost", "Random Forest", "Machine Learning"],
     icon: Shield,
     color: "from-blue-500 to-indigo-600",
-    github: "https://github.com/keyurdaswani",
+    github: "https://github.com/keyurdaswani1/credit-risk-analysis",
   },
   {
     title: "Major Crime Indicators (Toronto)",
@@ -29,7 +29,7 @@ const projects = [
     tags: ["Power BI", "SQL", "DAX", "Data Visualization"],
     icon: MapPin,
     color: "from-purple-500 to-pink-600",
-    github: "https://github.com/keyurdaswani",
+    github: "https://github.com/keyurdaswani1/toronto-crime-indicators",
   },
 ];
 
@@ -101,15 +101,11 @@ const ProjectsSection = () => {
                       <Button 
                         variant="outline" 
                         size="sm" 
-                        className="flex-1"
+                        className="w-full"
                         onClick={() => window.open(project.github, '_blank')}
                       >
                         <Github className="w-4 h-4 mr-1" />
-                        Code
-                      </Button>
-                      <Button variant="default" size="sm" className="flex-1">
-                        <ExternalLink className="w-4 h-4 mr-1" />
-                        Demo
+                        View on GitHub
                       </Button>
                     </div>
                   </div>
