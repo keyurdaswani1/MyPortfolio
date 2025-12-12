@@ -113,6 +113,23 @@ const ProjectsSection = () => {
               );
             })}
           </div>
+
+          {/* View All Projects on GitHub */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => window.open('https://github.com/keyurdaswani1?tab=repositories', '_blank')}
+            >
+              <Github className="w-5 h-5 mr-2" />
+              View All Projects on GitHub
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
