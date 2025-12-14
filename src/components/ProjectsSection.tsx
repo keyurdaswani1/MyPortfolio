@@ -38,7 +38,7 @@ const projects = [
       "Built machine learning models to detect fraudulent transactions using anomaly detection and classification techniques.",
     tags: ["Python", "Machine Learning", "Anomaly Detection", "Classification"],
     image: fraudDetectionImage,
-    github: "https://github.com/keyurdaswani1/fraud-detection-analysis",
+    github: "https://github.com/keyurdaswani1/Fraud-Detection-Analytics/",
   },
 ];
 
