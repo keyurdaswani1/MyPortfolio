@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 const tools = [
-  { name: "SQL", icon: Database, color: "from-blue-500 to-blue-600" },
-  { name: "Power BI", icon: BarChart3, color: "from-yellow-500 to-orange-500" },
-  { name: "Python", icon: Code2, color: "from-green-500 to-teal-500" },
+  { name: "Python", icon: Code2, color: "from-yellow-400 to-blue-500" },
+  { name: "SQL", icon: Database, color: "from-cyan-500 to-blue-600" },
+  { name: "Power BI", icon: BarChart3, color: "from-amber-500 to-yellow-500" },
   { name: "Excel", icon: FileSpreadsheet, color: "from-emerald-500 to-green-600" },
   { name: "SAP S/4HANA", icon: Layers, color: "from-blue-600 to-indigo-600" },
   { name: "Git", icon: GitBranch, color: "from-orange-500 to-red-500" },
