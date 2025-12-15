@@ -15,7 +15,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <a href="#home" className="text-2xl font-bold text-gradient">
-              KD
+              Keyur Daswani
             </a>
             <p className="text-muted-foreground mt-3 max-w-xs">
               Data Professional transforming complex data into actionable business strategies.

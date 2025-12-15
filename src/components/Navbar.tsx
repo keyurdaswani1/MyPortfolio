@@ -52,7 +52,7 @@ const Navbar = () => {
               handleNavClick("#home");
             }}
           >
-            KD
+            Keyur Daswani
           </a>
 
           {/* Desktop Navigation */}
