@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 const MicrosoftIcon = () => (
   <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
@@ -11,21 +12,25 @@ const certifications = [
     name: "Power BI Developer Associate",
     code: "PL-300",
     color: "from-amber-500 to-yellow-500",
+    url: null,
   },
   {
     name: "Azure Fundamentals",
     code: "AZ-900",
     color: "from-blue-500 to-cyan-400",
+    url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-fundamentals",
   },
   {
     name: "Data Professional",
     code: "DP-900",
     color: "from-purple-500 to-indigo-500",
+    url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-data-fundamentals",
   },
   {
     name: "AI Fundamentals",
     code: "AI-900",
     color: "from-pink-500 to-rose-500",
+    url: "https://learn.microsoft.com/en-ca/users/keyurdaswani-9486/credentials/5e490f2b3bcc5d60",
   },
 ];
 
@@ -58,17 +63,37 @@ const CertificationsSection = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="relative p-6 rounded-xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 hover-lift text-center h-full">
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${cert.color} p-3 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <MicrosoftIcon />
+              {cert.url ? (
+                <a
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative p-6 rounded-xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 hover-lift text-center h-full block cursor-pointer"
+                >
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${cert.color} p-3 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <MicrosoftIcon />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-1 text-sm leading-tight">
+                    {cert.name}
+                  </h3>
+                  <span className="text-xs font-mono text-primary font-medium flex items-center justify-center gap-1">
+                    {cert.code}
+                    <ExternalLink className="w-3 h-3" />
+                  </span>
+                </a>
+              ) : (
+                <div className="relative p-6 rounded-xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 hover-lift text-center h-full">
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${cert.color} p-3 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <MicrosoftIcon />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-1 text-sm leading-tight">
+                    {cert.name}
+                  </h3>
+                  <span className="text-xs font-mono text-primary font-medium">
+                    {cert.code}
+                  </span>
                 </div>
-                <h3 className="font-semibold text-foreground mb-1 text-sm leading-tight">
-                  {cert.name}
-                </h3>
-                <span className="text-xs font-mono text-primary font-medium">
-                  {cert.code}
-                </span>
-              </div>
+              )}
             </motion.div>
           ))}
         </div>
