@@ -21,13 +21,13 @@ const certifications = [
     url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-fundamentals",
   },
   {
-    name: "Data Professional",
+    name: "Azure Data Professional",
     code: "DP-900",
     color: "from-purple-500 to-indigo-500",
     url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-data-fundamentals",
   },
   {
-    name: "AI Fundamentals",
+    name: "Azure AI Fundamentals",
     code: "AI-900",
     color: "from-pink-500 to-rose-500",
     url: "https://learn.microsoft.com/en-ca/users/keyurdaswani-9486/credentials/5e490f2b3bcc5d60",
