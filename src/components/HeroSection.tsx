@@ -113,7 +113,7 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-gradient">25+</div>
+                <div className="text-3xl font-bold text-gradient">30+</div>
                 <div className="text-sm text-muted-foreground">Projects Delivered</div>
               </div>
             </motion.div>
