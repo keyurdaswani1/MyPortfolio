@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/keyur-profile.png";
 import heroPattern from "@/assets/hero-pattern.png";
+
+const socials = [
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/keyurdaswani",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/keyurdaswani1",
+  },
+];
 
 const HeroSection = () => {
   const handleNavClick = (href: string) => {
@@ -141,6 +154,26 @@ const HeroSection = () => {
                 />
               </div>
 
+              {/* Connect Links */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex gap-4 mt-6 justify-center"
+              >
+                {socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 hover:bg-primary/20 border border-border rounded-full text-sm font-medium transition-all hover:border-primary/50"
+                  >
+                    <social.icon className="w-4 h-4" />
+                    {social.label}
+                  </a>
+                ))}
+              </motion.div>
             </div>
           </motion.div>
         </div>
