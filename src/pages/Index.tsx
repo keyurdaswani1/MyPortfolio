@@ -8,7 +8,6 @@ import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import CertificationsSection from "@/components/CertificationsSection";
-import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -24,7 +23,6 @@ const Index = () => {
         <ExperienceSection />
         <EducationSection />
         <CertificationsSection />
-        <ContactSection />
         <Footer />
       </main>
     </ThemeProvider>
