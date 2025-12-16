@@ -170,8 +170,8 @@ const HeroSection = () => {
                   <a
                     key={social.label}
                     href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                     className="flex items-center gap-2 px-4 py-2 bg-secondary/50 hover:bg-primary/20 border border-border rounded-full text-sm font-medium transition-all hover:border-primary/50"
                   >
                     <social.icon className="w-4 h-4" />
