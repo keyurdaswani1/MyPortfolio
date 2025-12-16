@@ -31,12 +31,12 @@ const socials = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/keyurdaswani",
+    href: "https://www.linkedin.com/in/keyur-daswani/",
   },
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/keyurdaswani",
+    href: "https://github.com/keyurdaswani1/",
   },
 ];
 
