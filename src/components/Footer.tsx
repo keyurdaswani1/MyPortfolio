@@ -51,7 +51,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com/in/keyurdaswani"
+                href="https://www.linkedin.com/in/keyur-daswani/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
@@ -60,7 +60,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com/keyurdaswani"
+                href="https://github.com/keyurdaswani1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
