@@ -1,4 +1,4 @@
-import { Heart, Linkedin, Github, Mail } from "lucide-react";
+import { Heart, Linkedin, Github } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -43,13 +43,6 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Connect</h3>
             <div className="flex gap-3">
-              <a
-                href="mailto:keyurdaswani14@gmail.com"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                aria-label="Email"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
               <a
                 href="https://www.linkedin.com/in/keyur-daswani/"
                 target="_blank"
