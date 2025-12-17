@@ -161,18 +161,24 @@ const HeroSection = () => {
                 transition={{ delay: 0.6 }}
                 className="flex gap-4 mt-6 justify-center"
               >
-                {socials.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border flex items-center justify-center transition-all hover:border-primary/50"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </a>
-                ))}
+                <a
+                  href="https://www.linkedin.com/in/keyur-daswani/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border flex items-center justify-center transition-all hover:border-primary/50 cursor-pointer"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://github.com/keyurdaswani1/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full bg-secondary/50 hover:bg-primary/20 border border-border flex items-center justify-center transition-all hover:border-primary/50 cursor-pointer"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
               </motion.div>
             </div>
           </motion.div>
