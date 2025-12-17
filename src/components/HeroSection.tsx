@@ -1,15 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Linkedin, Github, Mail } from "lucide-react";
+import { ArrowRight, Download, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/keyur-profile.png";
 import heroPattern from "@/assets/hero-pattern.png";
 
 const socials = [
-  {
-    icon: Mail,
-    label: "Email",
-    href: "mailto:keyurdaswani14@gmail.com",
-  },
   {
     icon: Linkedin,
     label: "LinkedIn",
