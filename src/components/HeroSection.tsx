@@ -74,8 +74,8 @@ const HeroSection = () => {
               transition={{ delay: 0.4 }}
               className="text-xl text-muted-foreground mb-4"
             >
-              <span className="font-semibold text-foreground">Keyur Daswani</span>{" "}
-              | Data Analyst | SQL, Power BI, Python, SAP Expert
+              Hello, I'm{" "}
+              <span className="font-semibold text-foreground">Keyur Daswani</span>
             </motion.p>
 
             <motion.p
@@ -84,8 +84,7 @@ const HeroSection = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground mb-8 max-w-lg"
             >
-              Transforming complex data into actionable strategies with 5+ years of
-              experience in data analytics, ETL optimization, and machine learning.
+              I build end-to-end data and analytics solutions using Python, SQL, Azure, BI tools and Machine Learning, with 5+ years of experience across ETL pipelines, SAP integration and dashboarding.
             </motion.p>
 
             <motion.div
