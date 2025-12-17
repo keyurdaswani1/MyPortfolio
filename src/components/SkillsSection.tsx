@@ -1,13 +1,5 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import {
-  Brain,
-  LineChart,
-  PieChart,
-  Target,
-  GitBranch,
-  BarChart3,
-} from "lucide-react";
 
 // Custom SVG icons for brand logos
 const PythonIcon = () => (
@@ -83,15 +75,6 @@ const tools = [
   { name: "SAP CPI", Icon: CPIIcon, color: "from-teal-500 to-cyan-500" },
 ];
 
-const techniques = [
-  { name: "ETL Optimization", icon: GitBranch, description: "Streamlining data pipelines for efficiency" },
-  { name: "KPI Reporting", icon: Target, description: "Building actionable business dashboards" },
-  { name: "Machine Learning", icon: Brain, description: "Clustering, Sentiment Analysis, Predictive Models" },
-  { name: "Market Basket Analysis", icon: PieChart, description: "Uncovering product associations" },
-  { name: "Data Visualization", icon: LineChart, description: "Creating impactful visual stories" },
-  { name: "Statistical Analysis", icon: BarChart3, description: "Deriving insights from data patterns" },
-];
-
 const SkillsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -138,35 +121,6 @@ const SkillsSection = () => {
                         <IconComponent />
                       </div>
                       <span className="font-medium text-foreground">{tool.name}</span>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Techniques Grid */}
-          <div>
-            <h3 className="text-xl font-semibold mb-8 text-center">Techniques & Methods</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {techniques.map((technique, index) => {
-                const Icon = technique.icon;
-                return (
-                  <motion.div
-                    key={technique.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.3 + 0.1 * index }}
-                    className="group p-6 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover-lift"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
-                        <Icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">{technique.name}</h4>
-                        <p className="text-sm text-muted-foreground">{technique.description}</p>
-                      </div>
                     </div>
                   </motion.div>
                 );
