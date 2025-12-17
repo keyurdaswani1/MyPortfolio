@@ -9,11 +9,13 @@ const socials = [
     icon: Linkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/keyur-daswani/",
+    displayUrl: "linkedin.com/in/keyur-daswani",
   },
   {
     icon: Github,
     label: "GitHub",
     href: "https://github.com/keyurdaswani1/",
+    displayUrl: "github.com/keyurdaswani1",
   },
 ];
 
@@ -165,12 +167,13 @@ const HeroSection = () => {
                   <a
                     key={social.label}
                     href={social.href}
-                    target={social.href.startsWith("mailto:") ? undefined : "_blank"}
-                    rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-secondary/50 hover:bg-primary/20 border border-border rounded-full text-sm font-medium transition-all hover:border-primary/50"
                   >
                     <social.icon className="w-4 h-4" />
-                    {social.label}
+                    <span className="hidden sm:inline">{social.displayUrl}</span>
+                    <span className="sm:hidden">{social.label}</span>
                   </a>
                 ))}
               </motion.div>
