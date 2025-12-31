@@ -67,7 +67,7 @@ const AboutSection = () => {
             <span className="text-primary text-sm font-semibold uppercase tracking-wider">
               About Me
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4">Turning Data into Strategic Insights<span className="text-gradient">Strategic Insights</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4"><span className="text-gradient">Strategic Insights</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A results-driven Data Professional with expertise in transforming complex data
