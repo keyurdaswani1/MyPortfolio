@@ -49,7 +49,13 @@ const Navbar = () => {
   return <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", isScrolled ? "bg-card/95 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5")}>
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
-          <a href="#home" className="text-2xl font-bold text-gradient" onClick={e => {
+          <div className="hidden lg:flex items-center gap-3">
+            <button onClick={toggleTheme} className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors" aria-label="Toggle theme">
+              {theme === "light" ? <Moon className="w-5 h-5 text-foreground" /> : <Sun className="w-5 h-5 text-foreground" />}
+            </button>
+          </div>
+
+          <a href="#home" className="text-2xl font-bold text-gradient lg:hidden" onClick={e => {
           e.preventDefault();
           handleNavClick("#home");
         }}>
@@ -67,12 +73,7 @@ const Navbar = () => {
               </li>)}
           </ul>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <button onClick={toggleTheme} className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors" aria-label="Toggle theme">
-              {theme === "light" ? <Moon className="w-5 h-5 text-foreground" /> : <Sun className="w-5 h-5 text-foreground" />}
-            </button>
-            
-          </div>
+          <div className="hidden lg:block"></div>
 
           {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center gap-2">
