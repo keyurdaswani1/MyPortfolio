@@ -56,7 +56,7 @@ const HeroSection = () => {
             delay: 0.4
           }} className="mb-4">
               <p className="text-muted-foreground text-4xl">Hello, I'm</p>
-              <p className="font-bold text-sidebar-primary text-5xl sm:text-6xl whitespace-nowrap">Keyur Daswani</p>
+              <p className="font-bold text-sidebar-primary text-5xl whitespace-nowrap sm:text-5xl">Keyur Daswani</p>
             </motion.div>
 
             <motion.p initial={{
@@ -67,7 +67,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">With 5+ years of experience working with IBM & Accenture, I have helped clients across Banking & CPG sectors. I build scalable Data Analytics & Integration solutions using Machine Learning, Python, SQL, Azure Services and Power BI.</motion.p>
+          }} className="text-muted-foreground mb-8 max-w-lg">With 5+ years of experience working with IBM & Accenture, I have helped clients across Banking & CPG sectors. I build scalable Data Analytics & Integration solutions to solve business problems.</motion.p>
 
             <motion.div initial={{
             opacity: 0,
