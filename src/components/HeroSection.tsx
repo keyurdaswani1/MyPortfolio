@@ -78,9 +78,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">
-              I build end-to-end data and analytics solutions using Python, SQL, Azure, BI tools and Machine Learning, with 5+ years of experience across ETL pipelines, SAP integration and dashboarding.
-            </motion.p>
+          }} className="text-muted-foreground mb-8 max-w-lg">I build scalable Data Analytics & Integration solutions using Python, SQL, Azure, BI tools and Machine Learning. with 5+ years of experience across ETL pipelines, SAP integration and dashboarding.</motion.p>
 
             <motion.div initial={{
             opacity: 0,
