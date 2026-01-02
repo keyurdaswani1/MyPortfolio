@@ -53,8 +53,7 @@ const Navbar = () => {
           e.preventDefault();
           handleNavClick("#home");
         }}>
-            Keyur Daswani
-          </a>
+        </a>
 
           {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center gap-8">
