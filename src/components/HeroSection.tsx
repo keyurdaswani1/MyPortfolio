@@ -67,7 +67,7 @@ const HeroSection = () => {
             delay: 0.4
           }} className="text-xl text-muted-foreground mb-4">
               Hello, I'm{" "}
-              <span className="font-semibold text-foreground">Keyur Daswani</span>
+              <span className="font-semibold text-sidebar-primary">Keyur Daswani</span>
             </motion.p>
 
             <motion.p initial={{
