@@ -44,18 +44,7 @@ const HeroSection = () => {
         }} className="order-2 lg:order-1">
             
 
-            <motion.h1 initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.3
-          }} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Modernizing Business Problems with{" "}
-              <span className="text-gradient-hero">Data Solutions</span>
-            </motion.h1>
+            
 
             <motion.p initial={{
             opacity: 0,
@@ -65,7 +54,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.4
-          }} className="text-xl text-muted-foreground mb-4">
+          }} className="text-muted-foreground mb-4 text-7xl">
               Hello, I'm{" "}
               <span className="font-semibold text-sidebar-primary">Keyur Daswani</span>
             </motion.p>
@@ -78,7 +67,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">I build scalable Data Analytics & Integration solutions using Machine Learning, Python, SQL, Azure Services and Power BI. With 5+ years of experience working with IBM & Accenture,  I have helped clients across Banking & CPG sectors.</motion.p>
+          }} className="text-muted-foreground mb-8 max-w-lg">With 5+ years of experience working with IBM & Accenture, I have helped clients across Banking & CPG sectors. I build scalable Data Analytics & Integration solutions using Machine Learning, Python, SQL, Azure Services and Power BI.</motion.p>
 
             <motion.div initial={{
             opacity: 0,
