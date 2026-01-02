@@ -54,7 +54,7 @@ const HeroSection = () => {
             delay: 0.3
           }} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Modernizing Data Problems with{" "}
-              <span className="text-gradient-hero">AI Solutions</span>
+              <span className="text-gradient-hero">Data Solutions</span>
             </motion.h1>
 
             <motion.p initial={{
@@ -78,7 +78,8 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">I build scalable Data Analytics & Integration solutions using Python, SQL, Azure, BI tools and Machine Learning. with 5+ years of experience across ETL pipelines, SAP integration and dashboarding.</motion.p>
+          }} className="text-muted-foreground mb-8 max-w-lg">I build scalable Data Analytics & Integration solutions using Machine Learning, Python, SQL, Azure Services and Power BI. With 5+ years of experience working with IBM & Accenture, 
+I have hel</motion.p>
 
             <motion.div initial={{
             opacity: 0,
