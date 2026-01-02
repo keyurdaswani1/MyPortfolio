@@ -46,7 +46,7 @@ const HeroSection = () => {
 
             
 
-            <motion.p initial={{
+            <motion.div initial={{
             opacity: 0,
             y: 20
           }} animate={{
@@ -54,10 +54,10 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.4
-          }} className="text-muted-foreground mb-4 text-7xl">
-              Hello, I'm{" "}
-              <span className="font-semibold text-sidebar-primary">Keyur Daswani</span>
-            </motion.p>
+          }} className="mb-4">
+              <p className="text-muted-foreground text-4xl">Hello, I'm</p>
+              <p className="font-bold text-sidebar-primary text-5xl sm:text-6xl whitespace-nowrap">Keyur Daswani</p>
+            </motion.div>
 
             <motion.p initial={{
             opacity: 0,
