@@ -78,8 +78,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">I build scalable Data Analytics & Integration solutions using Machine Learning, Python, SQL, Azure Services and Power BI. With 5+ years of experience working with IBM & Accenture, 
-I have hel</motion.p>
+          }} className="text-muted-foreground mb-8 max-w-lg">I build scalable Data Analytics & Integration solutions using Machine Learning, Python, SQL, Azure Services and Power BI. With 5+ years of experience working with IBM & Accenture,  I have helped clients across Banking & CPG sectors.</motion.p>
 
             <motion.div initial={{
             opacity: 0,
