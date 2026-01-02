@@ -53,7 +53,7 @@ const HeroSection = () => {
           }} transition={{
             delay: 0.3
           }} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Modernizing Data Problems with{" "}
+              Modernizing Business Problems with{" "}
               <span className="text-gradient-hero">Data Solutions</span>
             </motion.h1>
 
