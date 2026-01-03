@@ -77,7 +77,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">With <span className="text-tech-blue font-medium text-muted-foreground">Vizru, IBM</span> of experience working at  <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span>, I have helped clients across <span className="text-tech-blue font-medium">Banking</span> & <span className="text-tech-blue font-medium">CPG</span> sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
+          }} className="text-muted-foreground mb-8 max-w-lg">With <span className="text-tech-blue font-medium text-muted-foreground"> , IBM</span> of experience working at  <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span>, I have helped clients across <span className="text-tech-blue font-medium">Banking</span> & <span className="text-tech-blue font-medium">CPG</span> sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
 
             <motion.div initial={{
             opacity: 0,
