@@ -30,7 +30,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 data-grid-bg" />
 
       {/* Social Links - Top Right */}
-      <div className="absolute top-24 right-4 lg:right-8 flex gap-3 z-20">
+      <div className="absolute top-6 right-4 lg:right-8 flex gap-3 z-20">
         {socials.map((social) => (
           <a
             key={social.label}
