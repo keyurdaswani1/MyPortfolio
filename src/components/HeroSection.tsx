@@ -29,6 +29,22 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
       <div className="absolute inset-0 data-grid-bg" />
 
+      {/* Social Links - Top Right */}
+      <div className="absolute top-24 right-4 lg:right-8 flex gap-3 z-20">
+        {socials.map((social) => (
+          <a
+            key={social.label}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+            aria-label={social.label}
+          >
+            <social.icon className="w-5 h-5" />
+          </a>
+        ))}
+      </div>
+
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
