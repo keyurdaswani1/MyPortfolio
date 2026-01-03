@@ -21,9 +21,7 @@ const AboutSection = () => {
             <span className="text-primary text-sm font-semibold uppercase tracking-wider">
               About Me
             </span>
-            <h2 className="text-3xl lg:text-4xl font-bold mt-3">
-              Turning Data into <span className="text-gradient">Strategic Insights</span>
-            </h2>
+            
           </div>
 
           <div className="max-w-4xl mx-auto space-y-6">
@@ -53,7 +51,7 @@ const AboutSection = () => {
             duration: 0.6,
             delay: 0.4
           }} className="text-muted-foreground leading-relaxed text-lg font-medium">
-              My work includes designing scalable solutions using <strong>Python, SQL and PySpark</strong>, along with cloud platforms such as <strong>Azure and Snowflake</strong>. I also apply Machine learning and AI to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <strong>Power BI dashboards</strong> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
+              My work includes designing scalable solutions using <strong className="text-primary">Python, SQL and PySpark</strong>, along with cloud platforms such as <strong>Azure and Snowflake</strong>. I also apply Machine learning and AI to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <strong>Power BI dashboards</strong> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
             </motion.p>
 
             <motion.p initial={{
