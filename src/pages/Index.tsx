@@ -7,22 +7,18 @@ import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <ThemeProvider>
+  return <ThemeProvider>
       <main className="min-h-screen bg-background">
         <Navbar />
         <HeroSection />
-        <AboutSection />
+        <AboutSection className="text-primary-foreground" />
         <ProjectsSection />
         <SkillsSection />
         <ExperienceSection />
         <EducationSection />
         <Footer />
       </main>
-    </ThemeProvider>
-  );
+    </ThemeProvider>;
 };
-
 export default Index;
