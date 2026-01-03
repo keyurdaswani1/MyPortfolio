@@ -30,19 +30,25 @@ const HeroSection = () => {
       <div className="absolute inset-0 data-grid-bg" />
 
       {/* Social Links - Top Right */}
-      <div className="absolute top-6 right-4 lg:right-8 flex gap-3 z-20">
-        {socials.map((social) => (
-          <a
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-            aria-label={social.label}
-          >
-            <social.icon className="w-5 h-5" />
-          </a>
-        ))}
+      <div className="fixed top-5 right-4 lg:right-8 flex gap-3 z-[60]">
+        <a
+          href="https://www.linkedin.com/in/keyur-daswani/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+          aria-label="LinkedIn"
+        >
+          <Linkedin className="w-5 h-5" />
+        </a>
+        <a
+          href="https://github.com/keyurdaswani1/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+          aria-label="GitHub"
+        >
+          <Github className="w-5 h-5" />
+        </a>
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
