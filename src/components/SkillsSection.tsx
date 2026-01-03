@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 // Custom SVG icons for brand logos
 const PythonIcon = () => (
@@ -62,6 +63,12 @@ const CPIIcon = () => (
   </svg>
 );
 
+const MicrosoftIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+    <path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z"/>
+  </svg>
+);
+
 const tools = [
   { name: "Python", Icon: PythonIcon, color: "from-yellow-400 to-blue-500" },
   { name: "SQL", Icon: SQLIcon, color: "from-cyan-500 to-blue-600" },
@@ -73,6 +80,33 @@ const tools = [
   { name: "Azure", Icon: AzureIcon, color: "from-blue-500 to-cyan-400" },
   { name: "SAP S/4HANA", Icon: SAPIcon, color: "from-blue-600 to-indigo-600" },
   { name: "SAP CPI", Icon: CPIIcon, color: "from-teal-500 to-cyan-500" },
+];
+
+const certifications = [
+  {
+    name: "Power BI Developer Associate",
+    code: "PL-300",
+    color: "from-amber-500 to-yellow-500",
+    url: null,
+  },
+  {
+    name: "Azure Fundamentals",
+    code: "AZ-900",
+    color: "from-blue-500 to-cyan-400",
+    url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-fundamentals",
+  },
+  {
+    name: "Azure Data Professional",
+    code: "DP-900",
+    color: "from-purple-500 to-indigo-500",
+    url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-data-fundamentals",
+  },
+  {
+    name: "Azure AI Fundamentals",
+    code: "AI-900",
+    color: "from-pink-500 to-rose-500",
+    url: "https://learn.microsoft.com/en-ca/users/keyurdaswani-9486/credentials/5e490f2b3bcc5d60",
+  },
 ];
 
 const SkillsSection = () => {
@@ -93,38 +127,105 @@ const SkillsSection = () => {
               Expertise
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4">
-              Tech Stack & <span className="text-gradient">Skills</span>
+              Skills & <span className="text-gradient">Certifications</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Proficient in modern data tools and techniques to deliver end-to-end analytics solutions.
+              Proficient in modern data tools with industry-recognized Microsoft certifications.
             </p>
           </div>
 
-          {/* Tools Grid */}
-          <div className="mb-16">
-            <h3 className="text-xl font-semibold mb-8 text-center">Tools & Technologies</h3>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-              {tools.map((tool, index) => {
-                const IconComponent = tool.Icon;
-                return (
-                  <motion.div
-                    key={tool.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.1 * index }}
-                    className="group relative p-6 bg-card rounded-xl border border-border hover-lift cursor-default"
-                  >
-                    <div className="flex flex-col items-center text-center gap-3">
-                      <div
-                        className={`w-12 h-12 rounded-lg bg-gradient-to-br ${tool.color} flex items-center justify-center transition-transform group-hover:scale-110 text-white`}
-                      >
-                        <IconComponent />
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            {/* Tools & Technologies */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+                <h3 className="text-lg font-semibold text-foreground whitespace-nowrap">
+                  Tools & Technologies
+                </h3>
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+                {tools.map((tool, index) => {
+                  const IconComponent = tool.Icon;
+                  return (
+                    <motion.div
+                      key={tool.name}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.4, delay: 0.05 * index }}
+                      className="group relative p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={`w-10 h-10 rounded-lg bg-gradient-to-br ${tool.color} flex items-center justify-center transition-transform group-hover:scale-110 text-white shadow-md`}
+                        >
+                          <IconComponent />
+                        </div>
+                        <span className="font-medium text-foreground text-sm">{tool.name}</span>
                       </div>
-                      <span className="font-medium text-foreground">{tool.name}</span>
-                    </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+                <h3 className="text-lg font-semibold text-foreground whitespace-nowrap">
+                  Microsoft Certifications
+                </h3>
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={cert.code}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: 0.1 * index }}
+                    className="group"
+                  >
+                    {cert.url ? (
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full"
+                      >
+                        <div className={`w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br ${cert.color} p-2.5 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <MicrosoftIcon />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium text-foreground text-sm leading-tight mb-1">
+                            {cert.name}
+                          </h4>
+                          <span className="text-xs font-mono text-primary font-medium flex items-center gap-1">
+                            {cert.code}
+                            <ExternalLink className="w-3 h-3" />
+                          </span>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full">
+                        <div className={`w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br ${cert.color} p-2.5 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                          <MicrosoftIcon />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-medium text-foreground text-sm leading-tight mb-1">
+                            {cert.name}
+                          </h4>
+                          <span className="text-xs font-mono text-primary font-medium">
+                            {cert.code}
+                          </span>
+                        </div>
+                      </div>
+                    )}
                   </motion.div>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
