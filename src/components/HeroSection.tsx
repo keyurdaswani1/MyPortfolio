@@ -31,10 +31,22 @@ const HeroSection = () => {
 
       {/* Social Links - Top Right */}
       <div className="fixed top-5 right-4 lg:right-8 flex gap-3 z-[60]">
-        <a href="https://www.linkedin.com/in/keyur-daswani/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
+        <a
+          href="https://www.linkedin.com/in/keyur-daswani/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+          aria-label="LinkedIn"
+        >
           <Linkedin className="w-5 h-5" />
         </a>
-        <a href="https://github.com/keyurdaswani1/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110" aria-label="GitHub">
+        <a
+          href="https://github.com/keyurdaswani1/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+          aria-label="GitHub"
+        >
           <Github className="w-5 h-5" />
         </a>
       </div>
@@ -77,7 +89,7 @@ const HeroSection = () => {
             y: 0
           }} transition={{
             delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">With 5+ of experience working at Vizru, IBM & Accenture, I have helped clients across Banking & CPG sectors by delivering scalable Data Analytics & Integration solutions to solve business problems.<span className="text-tech-blue font-medium text-muted-foreground"> , IBM</span> of experience working at  <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span>, I have helped clients across <span className="text-tech-blue font-medium">Banking</span> & <span className="text-tech-blue font-medium">CPG</span> sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
+          }} className="text-muted-foreground mb-8 max-w-lg">With <span className="text-tech-blue font-medium">5+ years</span> of experience working with <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span>, I have helped clients across <span className="text-tech-blue font-medium">Banking</span> & <span className="text-tech-blue font-medium">CPG</span> sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
 
             <motion.div initial={{
             opacity: 0,
