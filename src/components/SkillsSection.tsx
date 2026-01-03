@@ -117,8 +117,7 @@ const SkillsSection = () => {
       }}>
           <div className="text-center mb-16">
             
-            <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4">
-              Skills & <span className="text-gradient">Certifications</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4">Certifications<span className="text-gradient text-sm font-semibold">SKILLS & CERTIFICATIONS</span>
             </h2>
             
           </div>
