@@ -65,7 +65,7 @@ const HeroSection = () => {
           }} transition={{
             delay: 0.4
           }} className="mb-8">
-              <p className="text-muted-foreground text-4xl">Hello, I'm</p>
+              <p className="text-muted-foreground text-4xl">Vizru, IBM</p>
               <p className="font-bold text-sidebar-primary text-5xl whitespace-nowrap sm:text-5xl">Keyur Daswani</p>
             </motion.div>
 
