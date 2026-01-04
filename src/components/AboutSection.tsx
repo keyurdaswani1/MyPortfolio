@@ -36,9 +36,10 @@ const AboutSection = ({ className }: { className?: string }) => {
             delay: 0.2
           }} className="text-lg text-foreground leading-relaxed font-normal">
               Over the past <strong>5+ years</strong>, I've partnered with teams at{" "}
+              <span className="text-primary font-semibold">Vizru</span>,{" "}
               <span className="text-primary font-semibold">IBM</span>,{" "}
               <span className="text-primary font-semibold">Accenture</span> and{" "}
-              <span className="text-primary font-semibold">Vizru</span> to design and deliver Data Analytics and Integration solutions that operate at production scale and support critical business decisions. I bring a strong technical foundation in Data Analytics and Integration, combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
+              to design and deliver Data Analytics and Integration solutions that operate at production scale and support critical business decisions. I bring a strong technical foundation in Data Analytics and Integration, combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
             </motion.p>
 
             <motion.p initial={{
