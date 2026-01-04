@@ -13,10 +13,10 @@ const navLinks = [{
   href: "#projects",
   label: "Projects"
 }, {
-  href: "#skills & certifications",
+  href: "#skills-certifications",
   label: "Skills & Certifications"
 }, {
-  href: "#career journey",
+  href: "#career-journey",
   label: "Career Journey"
 }, {
   href: "#contact",
