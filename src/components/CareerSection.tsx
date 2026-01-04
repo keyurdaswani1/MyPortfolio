@@ -1,58 +1,58 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Building2, GraduationCap, ArrowDown, Sparkles } from "lucide-react";
-
-const journeySteps = [
-  {
-    title: "Vizru",
-    role: "Data Analyst Co-op",
-    period: "2025",
-    type: "work",
-    icon: Building2,
-  },
-  {
-    title: "Humber Polytechnic",
-    role: "PG in Business Insights & Analytics",
-    period: "2023 - 2025",
-    type: "education",
-    icon: GraduationCap,
-  },
-  {
-    title: "IBM",
-    role: "Senior Data Consultant",
-    period: "2022 - 2023",
-    type: "work",
-    icon: Building2,
-  },
-  {
-    title: "Accenture",
-    role: "Senior Software Analyst",
-    period: "2018 - 2022",
-    type: "work",
-    icon: Building2,
-  },
-  {
-    title: "VES Institute of Technology",
-    role: "BE in Electronics & Telecommunication",
-    period: "2015 - 2018",
-    type: "education",
-    icon: GraduationCap,
-  },
-];
-
-const CareerSection = ({ className }: { className?: string }) => {
+const journeySteps = [{
+  title: "Vizru",
+  role: "Data Analyst Co-op",
+  period: "2025",
+  type: "work",
+  icon: Building2
+}, {
+  title: "Humber Polytechnic",
+  role: "PG in Business Insights & Analytics",
+  period: "2023 - 2025",
+  type: "education",
+  icon: GraduationCap
+}, {
+  title: "IBM",
+  role: "Senior Data Consultant",
+  period: "2022 - 2023",
+  type: "work",
+  icon: Building2
+}, {
+  title: "Accenture",
+  role: "Senior Software Analyst",
+  period: "2018 - 2022",
+  type: "work",
+  icon: Building2
+}, {
+  title: "VES Institute of Technology",
+  role: "BE in Electronics & Telecommunication",
+  period: "2015 - 2018",
+  type: "education",
+  icon: GraduationCap
+}];
+const CareerSection = ({
+  className
+}: {
+  className?: string;
+}) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section id="experience" className={`py-16 lg:py-20 ${className || ""}`}>
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px"
+  });
+  return <section id="experience" className={`py-16 lg:py-20 ${className || ""}`}>
       <div className="container mx-auto px-4 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.div ref={ref} initial={{
+        opacity: 0,
+        y: 40
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.6
+      }}>
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 mb-3">
               <Sparkles className="w-5 h-5 text-primary" />
@@ -71,19 +71,20 @@ const CareerSection = ({ className }: { className?: string }) => {
 
               <div className="space-y-4 md:space-y-0">
                 {journeySteps.map((step, index) => {
-                  const isLeft = index % 2 === 0;
-                  const Icon = step.icon;
-                  const isWork = step.type === "work";
-                  const accentColor = isWork ? "primary" : "emerald-500";
-
-                  return (
-                    <motion.div
-                      key={step.title + step.period}
-                      initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
-                      className={`relative md:flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
-                    >
+                const isLeft = index % 2 === 0;
+                const Icon = step.icon;
+                const isWork = step.type === "work";
+                const accentColor = isWork ? "primary" : "emerald-500";
+                return <motion.div key={step.title + step.period} initial={{
+                  opacity: 0,
+                  x: isLeft ? -50 : 50
+                }} animate={isInView ? {
+                  opacity: 1,
+                  x: 0
+                } : {}} transition={{
+                  duration: 0.5,
+                  delay: 0.2 + index * 0.15
+                }} className={`relative md:flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}>
                       {/* Card */}
                       <div className={`md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}`}>
                         <div className={`group p-4 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 hover:border-${accentColor}/50 transition-all duration-300 hover:shadow-lg hover:shadow-${accentColor}/10`}>
@@ -112,43 +113,22 @@ const CareerSection = ({ className }: { className?: string }) => {
                       </div>
 
                       {/* Arrow connector for mobile */}
-                      {index < journeySteps.length - 1 && (
-                        <div className="flex justify-center py-2 md:hidden">
+                      {index < journeySteps.length - 1 && <div className="flex justify-center py-2 md:hidden">
                           <ArrowDown className="w-5 h-5 text-muted-foreground/50" />
-                        </div>
-                      )}
+                        </div>}
 
                       {/* Empty space for opposite side */}
                       <div className="hidden md:block md:w-[calc(50%-2rem)]" />
-                    </motion.div>
-                  );
-                })}
+                    </motion.div>;
+              })}
               </div>
             </div>
           </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-10 flex flex-wrap justify-center gap-8 lg:gap-12"
-          >
-            {[
-              { value: "7+", label: "Years Experience" },
-              { value: "3", label: "Companies" },
-              { value: "2", label: "Degrees" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-gradient">{stat.value}</div>
-                <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
+          
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CareerSection;
