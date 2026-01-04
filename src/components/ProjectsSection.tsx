@@ -31,13 +31,13 @@ const projects = [{
   image: fraudDetectionImage,
   github: "https://github.com/keyurdaswani1/Fraud-Detection-Analytics/"
 }];
-const ProjectsSection = () => {
+const ProjectsSection = ({ className }: { className?: string }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px"
   });
-  return <section id="projects" className="py-20 lg:py-32 bg-muted/30">
+  return <section id="projects" className={`py-20 lg:py-32 bg-muted/30 ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div ref={ref} initial={{
         opacity: 0,
