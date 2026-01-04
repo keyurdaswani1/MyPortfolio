@@ -53,14 +53,9 @@ const CareerSection = ({
       } : {}} transition={{
         duration: 0.6
       }}>
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <Sparkles className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium text-primary uppercase tracking-wider">My Path</span>
-            </div>
-            <h2 className="text-3xl lg:text-4xl font-bold">
+          <div className="inline-flex items-center gap-2 mb-3">
               <span className="text-gradient">Career Journey</span>
-            </h2>
+            
           </div>
 
           {/* Journey Flow */}
