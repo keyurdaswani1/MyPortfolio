@@ -98,13 +98,13 @@ const certifications = [{
   color: "from-pink-500 to-rose-500",
   url: "https://learn.microsoft.com/en-ca/users/keyurdaswani-9486/credentials/5e490f2b3bcc5d60"
 }];
-const SkillsSection = () => {
+const SkillsSection = ({ className }: { className?: string }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px"
   });
-  return <section id="skills" className="py-20 lg:py-32">
+  return <section id="skills" className={`py-20 lg:py-32 ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div ref={ref} initial={{
         opacity: 0,

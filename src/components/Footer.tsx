@@ -1,6 +1,6 @@
 import { Heart, Linkedin, Github } from "lucide-react";
 
-const Footer = () => {
+const Footer = ({ className }: { className?: string }) => {
   const currentYear = new Date().getFullYear();
 
   const handleNavClick = (href: string) => {
@@ -9,7 +9,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-card border-t border-border py-12">
+    <footer className={`bg-card border-t border-border py-12 ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
