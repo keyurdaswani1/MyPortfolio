@@ -81,22 +81,22 @@ const certifications = [{
   name: "Power BI Developer Associate",
   code: "PL-300",
   color: "from-amber-500 to-yellow-500",
-  url: null
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/"
 }, {
   name: "Azure Fundamentals",
   code: "AZ-900",
   color: "from-blue-500 to-cyan-400",
-  url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-fundamentals"
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/C3065EDAAE249D48?sharingId=D7A82B50A61A675A"
 }, {
   name: "Azure Data Professional",
   code: "DP-900",
   color: "from-purple-500 to-indigo-500",
-  url: "https://learn.microsoft.com/en-us/users/keyurdaswani-9486/credentials/certification/azure-data-fundamentals"
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/198FC67FBA99E598?sharingId=D7A82B50A61A675A"
 }, {
   name: "Azure AI Fundamentals",
   code: "AI-900",
   color: "from-pink-500 to-rose-500",
-  url: "https://learn.microsoft.com/en-ca/users/keyurdaswani-9486/credentials/5e490f2b3bcc5d60"
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/5E490F2B3BCC5D60?sharingId=D7A82B50A61A675A"
 }];
 const SkillsSection = ({ className }: { className?: string }) => {
   const ref = useRef(null);
