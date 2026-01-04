@@ -12,12 +12,12 @@ const Index = () => {
       <main className="min-h-screen bg-background">
         <Navbar />
         <HeroSection />
-        <AboutSection className="text-primary-foreground bg-[#010118]" />
-        <ProjectsSection className="bg-[#010118]" />
-        <SkillsSection className="bg-[#010118]" />
-        <ExperienceSection className="bg-[#010118]" />
-        <EducationSection className="bg-[#010118]" />
-        <Footer className="bg-[#010118]" />
+        <AboutSection className="text-primary-foreground bg-[sidebar-accent-foreground] bg-slate-950" />
+        <ProjectsSection className="bg-slate-950" />
+        <SkillsSection className="bg-slate-950" />
+        <ExperienceSection className="bg-slate-950" />
+        <EducationSection className="bg-slate-950" />
+        <Footer className="bg-slate-950" />
       </main>
     </ThemeProvider>;
 };

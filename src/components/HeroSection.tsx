@@ -27,7 +27,7 @@ const HeroSection = () => {
       backgroundPosition: "center bottom"
     }} />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-      <div className="absolute inset-0 data-grid-bg bg-[sidebar-primary-foreground] bg-[#010118]" />
+      <div className="absolute inset-0 data-grid-bg bg-[sidebar-primary-foreground] bg-[#010118]/[0.79]" />
 
       {/* Social Links - Top Right */}
       <div className="fixed top-5 right-4 lg:right-8 flex gap-3 z-[60]">
