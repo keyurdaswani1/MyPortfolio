@@ -19,18 +19,18 @@ const journeySteps = [{
   period: "2022 - 2023",
   type: "work",
   icon: Building2
-},{
-  title: "Accenture",
-  role: "Senior Software Analyst",
-  period: "2018 - 2022",
-  type: "work",
-  icon: Building2
-},{
+}, {
   title: "VES Institute of Technology",
   role: "BE in Electronics & Telecommunication",
   period: "2015 - 2018",
   type: "education",
   icon: GraduationCap
+}, {
+  title: "Accenture",
+  role: "Senior Software Analyst",
+  period: "2018 - 2022",
+  type: "work",
+  icon: Building2
 }];
 const CareerSection = ({
   className
