@@ -117,7 +117,7 @@ const SkillsSection = () => {
       }}>
           <div className="text-center mb-16">
             
-            <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4">Certifications<span className="text-gradient text-sm font-semibold">SKILLS & CERTIFICATIONS</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4">SKILLS & CERTIFICATIONS<span className="text-gradient text-sm font-semibold">SKILLS & CERTIFICATIONS</span>
             </h2>
             
           </div>
@@ -128,9 +128,7 @@ const SkillsSection = () => {
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
-                <h3 className="text-lg font-semibold text-foreground whitespace-nowrap">
-                  Tools & Technologies
-                </h3>
+                <h3 className="text-lg font-semibold text-foreground whitespace-nowrap">Skills</h3>
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -161,9 +159,7 @@ const SkillsSection = () => {
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
-                <h3 className="text-lg font-semibold text-foreground whitespace-nowrap">
-                  Microsoft Certifications
-                </h3>
+                <h3 className="text-lg font-semibold text-foreground whitespace-nowrap">Certifications</h3>
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
