@@ -53,8 +53,10 @@ const CareerSection = ({
       } : {}} transition={{
         duration: 0.6
       }}>
-          <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-gradient">Career Journey</span>
+          <div className="text-center mb-12">
+            <span className="text-primary text-sm font-semibold uppercase tracking-wider">
+              Career Journey
+            </span>
             
           </div>
 
