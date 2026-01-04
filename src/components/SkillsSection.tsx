@@ -117,9 +117,8 @@ const SkillsSection = ({ className }: { className?: string }) => {
       }}>
           <div className="text-center mb-16">
             
-            <h2 className="text-3xl lg:text-4xl font-bold mt-3 mb-4">SKILLS & CERTIFICATIONS<span className="text-gradient text-sm font-semibold">SKILLS & CERTIFICATIONS</span>
-            </h2>
-            
+            <span className="text-gradient text-sm font-semibold">SKILLS & CERTIFICATIONS</span>
+           
           </div>
 
           {/* Two Column Layout */}
