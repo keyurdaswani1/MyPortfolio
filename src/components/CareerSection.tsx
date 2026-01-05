@@ -2,21 +2,27 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Building2, GraduationCap, ArrowDown, Sparkles } from "lucide-react";
 const journeySteps = [{
-  title: "Vizru",
-  role: "Data Analyst Co-op",
+  title: "Data Analyst Co-op",
+  role: "Vizru",
   period: "2025",
   type: "work",
   icon: Building2
 }, {
-  title: "Humber Polytechnic",
-  role: "PG in Business Insights & Analytics",
+  title: "PG in Business Insights & Analytics",
+  role: "Humber Polytechnic",
   period: "2023 - 2025",
   type: "education",
   icon: GraduationCap
 }, {
-  title: "IBM",
-  role: "Senior Data Consultant",
+  title: "Senior Data Consultant",
+  role: "IBM",
   period: "2022 - 2023",
+  type: "work",
+  icon: Building2
+}, {
+  title: "Senior Software Analyst",
+  role: "Accenture",
+  period: "2018 - 2022",
   type: "work",
   icon: Building2
 }, {
@@ -25,12 +31,6 @@ const journeySteps = [{
   period: "2015 - 2018",
   type: "education",
   icon: GraduationCap
-}, {
-  title: "Accenture",
-  role: "Senior Software Analyst",
-  period: "2018 - 2022",
-  type: "work",
-  icon: Building2
 }];
 const CareerSection = ({
   className
