@@ -39,7 +39,7 @@ const AboutSection = ({ className }: { className?: string }) => {
               <span className="text-primary font-semibold">Vizru</span>,{" "}
               <span className="text-primary font-semibold">IBM</span>,{" "}
               <span className="text-primary font-semibold">Accenture</span> and{" "}
-              to design and deliver <span className="text-primary font-semibold">Data Analytics and Integration solutions</span>{" "} that operate at production scale and support critical business decisions. I bring a strong technical foundation combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
+              to design <span className="text-primary font-semibold">Data Analytics and Integration solutions</span>{" "} that operate at production scale and support critical business decisions. I bring a strong technical foundation combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
             </motion.p>
 
             <motion.p initial={{
