@@ -54,47 +54,41 @@ const ProjectsSection = ({ className }: { className?: string }) => {
             
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => {
-            return <motion.div key={project.title} initial={{
-              opacity: 0,
-              y: 30
-            }} animate={isInView ? {
-              opacity: 1,
-              y: 0
-            } : {}} transition={{
-              duration: 0.5,
-              delay: 0.1 * index
-            }} className="group bg-card rounded-xl border border-border overflow-hidden hover-lift">
-                  {/* Project Header */}
-                  <div className="h-48 relative overflow-hidden">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-3">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map(tag => <span key={tag} className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-medium rounded-full">
-                          {tag}
-                        </span>)}
-                    </div>
-
-                    {/* Actions */}
-                    <div className="flex gap-3">
-                      <Button variant="outline" size="sm" className="w-full" onClick={() => window.open(project.github, '_blank')}>
-                        <Github className="w-4 h-4 mr-1" />
-                        View on GitHub
-                      </Button>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {projects.map((project, index) => (
+              <motion.a
+                key={project.title}
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className="group relative rounded-xl overflow-hidden cursor-pointer hover-lift"
+              >
+                {/* Image */}
+                <div className="aspect-square relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Title on hover */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="text-sm font-semibold text-foreground text-center leading-tight mb-2">
+                      {project.title}
+                    </h3>
+                    <div className="flex items-center gap-1 text-xs text-primary">
+                      <Github className="w-3 h-3" />
+                      <span>View Project</span>
                     </div>
                   </div>
-                </motion.div>;
-          })}
+                </div>
+              </motion.a>
+            ))}
           </div>
 
           {/* View All Projects on GitHub */}
