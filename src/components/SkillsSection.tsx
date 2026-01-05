@@ -104,7 +104,7 @@ const SkillsSection = ({ className }: { className?: string }) => {
     once: true,
     margin: "-100px"
   });
-  return <section id="skills" className={`py-20 lg:py-32 ${className || ''}`}>
+  return <section id="skills" className={`py-12 lg:py-16 ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div ref={ref} initial={{
         opacity: 0,
