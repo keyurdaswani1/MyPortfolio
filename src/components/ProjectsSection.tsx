@@ -73,15 +73,15 @@ const ProjectsSection = ({ className }: { className?: string }) => {
                     alt={project.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Always visible overlay with title */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
                   
-                  {/* Title on hover */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="text-sm font-semibold text-foreground text-center leading-tight mb-2">
+                  {/* Title always visible */}
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <h3 className="text-sm font-semibold text-foreground text-center leading-tight">
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-1 text-xs text-primary">
+                    <div className="flex items-center justify-center gap-1 text-xs text-primary mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <Github className="w-3 h-3" />
                       <span>View Project</span>
                     </div>
