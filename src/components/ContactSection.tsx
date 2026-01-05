@@ -45,6 +45,12 @@ const ContactSection = ({
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Get In Touch
           </h2>
+          <div className="text-center mb-12">
+            <span className="text-primary text-sm font-semibold uppercase tracking-wider">
+              Career Journey
+            </span>
+            
+          </div>
           
         </motion.div>
 
