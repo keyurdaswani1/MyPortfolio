@@ -39,7 +39,7 @@ const AboutSection = ({ className }: { className?: string }) => {
               <span className="text-primary font-semibold">Vizru</span>,{" "}
               <span className="text-primary font-semibold">IBM</span>,{" "}
               <span className="text-primary font-semibold">Accenture</span> and{" "}
-              to design and deliver Data Analytics and Integration solutions that operate at production scale and support critical business decisions. I bring a strong technical foundation in Data Analytics and Integration, combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
+              to design and deliver <span className="text-primary font-semibold">Data Analytics and Integration solutions</span>{" "} that operate at production scale and support critical business decisions. I bring a strong technical foundation combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
             </motion.p>
 
             <motion.p initial={{
@@ -52,7 +52,7 @@ const AboutSection = ({ className }: { className?: string }) => {
             duration: 0.6,
             delay: 0.4
           }} className="leading-relaxed text-lg font-medium text-primary-foreground">
-              My work includes designing scalable solutions using <strong className="text-primary">Python, SQL and PySpark</strong>, along with cloud platforms such as <strong>Azure and Snowflake</strong>. I also apply Machine learning and AI to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <strong>Power BI dashboards</strong> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
+              My work includes designing scalable solutions using <strong className="text-primary">Machine learning and AI</strong>, along with cloud platforms such as <strong className="text-primary">Azure and Snowflake</strong>. I also apply <strong className="text-primary">Python, PySpark and SQL </strong>> to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <strong className="text-primary">Power BI dashboards</strong> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
             </motion.p>
 
             <motion.p initial={{
