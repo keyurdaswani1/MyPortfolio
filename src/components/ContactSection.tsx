@@ -43,14 +43,8 @@ const ContactSection = ({
         duration: 0.6
       }} className="text-center mb-12">
           <h2 className="text-primary text-sm font-semibold uppercase tracking-wider">
-            Lets
+            Contact
           </h2>
-          <div className="text-center mb-12">
-            <span className="text-primary text-sm font-semibold uppercase tracking-wider">
-              Lets Connect ?
-            </span>
-            
-          </div>
           
         </motion.div>
 
