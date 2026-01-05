@@ -26,8 +26,8 @@ const journeySteps = [{
   type: "work",
   icon: Building2
 }, {
-  title: "VES Institute of Technology",
-  role: "BE in Electronics & Telecommunication",
+  title: "BE in Electronics & Telecommunication",
+  role: "VES Institute of Technology",
   period: "2015 - 2018",
   type: "education",
   icon: GraduationCap
