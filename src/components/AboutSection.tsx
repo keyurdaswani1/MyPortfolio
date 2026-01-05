@@ -37,9 +37,9 @@ const AboutSection = ({ className }: { className?: string }) => {
           }} className="text-lg text-foreground leading-relaxed font-normal">
               Over the past <strong>5+ years</strong>, I've partnered with teams at{" "}
               <span className="text-primary font-semibold">Vizru</span>,{" "}
-              <span className="text-primary font-semibold">IBM</span>,{" "}
-              <span className="text-primary font-semibold">Accenture</span> and{" "}
-              to design <span className="text-primary font-semibold">Data Analytics and Integration solutions</span>{" "} that operate at production scale and support critical business decisions. I bring a strong technical foundation combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
+              <span className="text-primary font-semibold">IBM</span> & {" "}
+              <span className="text-primary font-semibold">Accenture</span>{" "}
+              to design <span className="text-primary font-semibold">Data Analytics & Integration solutions</span>{" "} that operate at production scale and support critical business decisions. I bring a strong technical foundation combined with a practical understanding of how data is used within Banking & CPG organizations. I enjoy tackling ambiguous problems, uncovering the questions hidden in the data and building solutions that address real business challenges.
             </motion.p>
 
             <motion.p initial={{
@@ -52,7 +52,7 @@ const AboutSection = ({ className }: { className?: string }) => {
             duration: 0.6,
             delay: 0.4
           }} className="leading-relaxed text-lg font-medium text-primary-foreground">
-              My work includes designing scalable solutions using <span className="text-primary font-semibold">Machine learning and AI</span>, along with cloud platforms such as <span className="text-primary font-semibold">Azure and Snowflake</span>. I also apply <span className="text-primary font-semibold">Python, PySpark and SQL </span> to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <span className="text-primary font-semibold">Power BI dashboards</span> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
+              My work includes designing scalable solutions using <span className="text-primary font-semibold">Machine learning & AI</span>, along with cloud platforms such as <span className="text-primary font-semibold">Azure & Snowflake</span>. I also apply <span className="text-primary font-semibold">Python, PySpark & SQL </span> to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <span className="text-primary font-semibold">Power BI dashboards</span> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
             </motion.p>
 
             <motion.p initial={{
