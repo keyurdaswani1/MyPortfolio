@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import CareerSection from "@/components/CareerSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
         <ProjectsSection className="bg-slate-950" />
         <SkillsSection className="bg-slate-950" />
         <CareerSection className="bg-slate-950" />
+        <ContactSection className="bg-slate-950" />
         <Footer className="bg-slate-950" />
       </main>
     </ThemeProvider>
