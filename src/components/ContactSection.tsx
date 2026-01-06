@@ -79,9 +79,7 @@ const ContactSection = ({
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-muted-foreground mb-1">
-                    {item.label}
-                  </h3>
+                  
                   <p className="text-foreground font-medium group-hover:text-primary transition-colors">
                     {item.value}
                   </p>
