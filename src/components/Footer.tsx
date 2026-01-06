@@ -1,15 +1,17 @@
 import { Heart, Linkedin, Github } from "lucide-react";
-
-const Footer = ({ className }: { className?: string }) => {
+const Footer = ({
+  className
+}: {
+  className?: string;
+}) => {
   const currentYear = new Date().getFullYear();
-
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    element?.scrollIntoView({
+      behavior: "smooth"
+    });
   };
-
-  return (
-    <footer className={`bg-card border-t border-border py-12 ${className || ''}`}>
+  return <footer className={`bg-card border-t border-border py-12 ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
@@ -17,25 +19,18 @@ const Footer = ({ className }: { className?: string }) => {
             <a href="#home" className="text-2xl font-bold text-gradient">
               Keyur Daswani
             </a>
-            <p className="text-muted-foreground mt-3 max-w-xs">
-              Data Professional transforming complex data into actionable business strategies.
-            </p>
+            
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["About", "Skills", "Experience", "Projects", "Contact"].map((link) => (
-                <li key={link}>
-                  <button
-                    onClick={() => handleNavClick(`#${link.toLowerCase()}`)}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
+              {["About", "Skills", "Experience", "Projects", "Contact"].map(link => <li key={link}>
+                  <button onClick={() => handleNavClick(`#${link.toLowerCase()}`)} className="text-muted-foreground hover:text-primary transition-colors">
                     {link}
                   </button>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -43,22 +38,10 @@ const Footer = ({ className }: { className?: string }) => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Connect</h3>
             <div className="flex gap-3">
-              <a
-                href="https://www.linkedin.com/in/keyur-daswani/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                aria-label="LinkedIn"
-              >
+              <a href="https://www.linkedin.com/in/keyur-daswani/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a
-                href="https://github.com/keyurdaswani1/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                aria-label="GitHub"
-              >
+              <a href="https://github.com/keyurdaswani1/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
             </div>
@@ -74,8 +57,6 @@ const Footer = ({ className }: { className?: string }) => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
