@@ -26,7 +26,7 @@ const Footer = ({
           <div>
             <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["About", "Skills", "Career Journey", "Projects", "Contact"].map(link => <li key={link}>
+              {["About", "Projects", "Skills", "Career Journey", "Contact"].map(link => <li key={link}>
                   <button onClick={() => handleNavClick(`#${link.toLowerCase()}`)} className="text-muted-foreground hover:text-primary transition-colors">
                     {link}
                   </button>
