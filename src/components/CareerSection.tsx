@@ -8,6 +8,7 @@ const journeySteps = [{
   period: "2025",
   type: "work",
   icon: Building2,
+  side: "left" as const,
   description: [
     "Performed end-to-end data analysis using Python and SQL, from data cleaning and feature engineering to insight generation",
     "Built and evaluated machine learning models to identify patterns, trends, and predictive signals in business data",
@@ -19,13 +20,15 @@ const journeySteps = [{
   role: "Humber Polytechnic",
   period: "2023 - 2025",
   type: "education",
-  icon: GraduationCap
+  icon: GraduationCap,
+  side: "right" as const
 }, {
   title: "Senior Data Consultant",
   role: "IBM",
   period: "2022 - 2023",
   type: "work",
   icon: Building2,
+  side: "left" as const,
   description: [
     "Designed and implemented large-scale data analysis workflows using Python and PySpark for high-volume datasets",
     "Supported machine learning data pipelines by preparing, transforming, and optimizing data in Snowflake",
@@ -34,23 +37,25 @@ const journeySteps = [{
     "Delivered technically robust analytics solutions aligned with enterprise ML and AI initiatives"
   ]
 }, {
-  title: "BE in Electronics & Telecommunication",
-  role: "VES Institute of Technology",
-  period: "2015 - 2018",
-  type: "education",
-  icon: GraduationCap
-}, {
   title: "Senior Software Analyst",
   role: "Accenture",
   period: "2018 - 2022",
   type: "work",
   icon: Building2,
+  side: "left" as const,
   description: [
     "Led enterprise data analysis initiatives by integrating complex SAP data into centralized analytics platforms",
     "Built reliable datasets using Azure Data Services to support reporting, advanced analytics, and downstream ML use cases",
     "Designed ETL/ELT pipelines that enabled historical analysis, trend identification, and predictive modeling readiness",
     "Partnered with business teams to translate analytical requirements into scalable data solutions"
   ]
+}, {
+  title: "BE in Electronics & Telecommunication",
+  role: "VES Institute of Technology",
+  period: "2015 - 2018",
+  type: "education",
+  icon: GraduationCap,
+  side: "right" as const
 }];
 
 interface StepType {
@@ -59,6 +64,7 @@ interface StepType {
   period: string;
   type: string;
   icon: typeof Building2;
+  side: "left" | "right";
   description?: string[];
 }
 
@@ -67,7 +73,7 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
   const isCardInView = useInView(cardRef, { once: true, margin: "-50px" });
   const [isHovered, setIsHovered] = useState(false);
   
-  const isLeft = index % 2 === 0;
+  const isLeft = step.side === "left";
   const Icon = step.icon;
   const isWork = step.type === "work";
   const hasDescription = step.description && step.description.length > 0;
