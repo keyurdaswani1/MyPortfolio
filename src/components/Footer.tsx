@@ -26,7 +26,7 @@ const Footer = ({
           <div>
             <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["About", "Skills", "Experience", "Projects", "Contact"].map(link => <li key={link}>
+              {["About", "Skills", "Career Journey", "Projects", "Contact"].map(link => <li key={link}>
                   <button onClick={() => handleNavClick(`#${link.toLowerCase()}`)} className="text-muted-foreground hover:text-primary transition-colors">
                     {link}
                   </button>
@@ -51,9 +51,6 @@ const Footer = ({
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear} Keyur Daswani. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart className="w-4 h-4 text-destructive fill-destructive" /> and data
           </p>
         </div>
       </div>
