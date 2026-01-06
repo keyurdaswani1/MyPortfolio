@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Building2, GraduationCap, ArrowDown } from "lucide-react";
 
 const journeySteps = [{
@@ -7,7 +7,13 @@ const journeySteps = [{
   role: "Vizru",
   period: "2025",
   type: "work",
-  icon: Building2
+  icon: Building2,
+  description: [
+    "Performed end-to-end data analysis using Python and SQL, from data cleaning and feature engineering to insight generation",
+    "Built and evaluated machine learning models to identify patterns, trends, and predictive signals in business data",
+    "Applied statistical analysis and ML techniques to support data-driven decision-making",
+    "Communicated analytical and ML-driven insights through clear narratives and visual summaries"
+  ]
 }, {
   title: "PG in Business Insights & Analytics",
   role: "Humber Polytechnic",
@@ -19,19 +25,32 @@ const journeySteps = [{
   role: "IBM",
   period: "2022 - 2023",
   type: "work",
-  icon: Building2
+  icon: Building2,
+  description: [
+    "Designed and implemented large-scale data analysis workflows using Python and PySpark for high-volume datasets",
+    "Supported machine learning data pipelines by preparing, transforming, and optimizing data in Snowflake",
+    "Enabled analytical and ML use cases by delivering trusted, analytics-ready datasets",
+    "Built interactive Power BI and Tableau dashboards to surface analytical findings and model outputs for business leaders",
+    "Delivered technically robust analytics solutions aligned with enterprise ML and AI initiatives"
+  ]
+}, {
+  title: "Senior Software Analyst",
+  role: "Accenture",
+  period: "2018 - 2022",
+  type: "work",
+  icon: Building2,
+  description: [
+    "Led enterprise data analysis initiatives by integrating complex SAP data into centralized analytics platforms",
+    "Built reliable datasets using Azure Data Services to support reporting, advanced analytics, and downstream ML use cases",
+    "Designed ETL/ELT pipelines that enabled historical analysis, trend identification, and predictive modeling readiness",
+    "Partnered with business teams to translate analytical requirements into scalable data solutions"
+  ]
 }, {
   title: "BE in Electronics & Telecommunication",
   role: "VES Institute of Technology",
   period: "2015 - 2018",
   type: "education",
   icon: GraduationCap
-}, {
-  title: "Senior Software Analyst",
-  role: "Accenture",
-  period: "2018 - 2022",
-  type: "work",
-  icon: Building2
 }];
 
 interface StepType {
@@ -40,15 +59,18 @@ interface StepType {
   period: string;
   type: string;
   icon: typeof Building2;
+  description?: string[];
 }
 
 const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, { once: true, margin: "-50px" });
+  const [isHovered, setIsHovered] = useState(false);
   
   const isLeft = index % 2 === 0;
   const Icon = step.icon;
   const isWork = step.type === "work";
+  const hasDescription = step.description && step.description.length > 0;
 
   return (
     <motion.div
@@ -68,6 +90,8 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
           animate={isCardInView ? { scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
           whileHover={{ scale: 1.02, y: -4 }}
+          onHoverStart={() => setIsHovered(true)}
+          onHoverEnd={() => setIsHovered(false)}
           className={`group p-4 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 ${isWork ? "hover:border-primary/50 hover:shadow-primary/10" : "hover:border-emerald-500/50 hover:shadow-emerald-500/10"} transition-all duration-300 hover:shadow-lg`}
         >
           <div className={`flex items-center gap-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
@@ -96,6 +120,34 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
               {step.period}
             </span>
           </motion.div>
+
+          {/* Hover description */}
+          <AnimatePresence>
+            {isHovered && hasDescription && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <ul className={`mt-4 space-y-2 text-left border-t border-border/30 pt-4`}>
+                  {step.description?.map((item, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2, delay: i * 0.05 }}
+                      className="flex gap-2 text-xs text-muted-foreground"
+                    >
+                      <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${isWork ? "bg-primary" : "bg-emerald-500"}`} />
+                      <span>{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
 
