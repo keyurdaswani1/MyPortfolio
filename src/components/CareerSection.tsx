@@ -34,6 +34,12 @@ const journeySteps = [{
     "Delivered technically robust analytics solutions aligned with enterprise ML and AI initiatives"
   ]
 }, {
+  title: "BE in Electronics & Telecommunication",
+  role: "VES Institute of Technology",
+  period: "2015 - 2018",
+  type: "education",
+  icon: GraduationCap
+}, {
   title: "Senior Software Analyst",
   role: "Accenture",
   period: "2018 - 2022",
@@ -45,12 +51,6 @@ const journeySteps = [{
     "Designed ETL/ELT pipelines that enabled historical analysis, trend identification, and predictive modeling readiness",
     "Partnered with business teams to translate analytical requirements into scalable data solutions"
   ]
-}, {
-  title: "BE in Electronics & Telecommunication",
-  role: "VES Institute of Technology",
-  period: "2015 - 2018",
-  type: "education",
-  icon: GraduationCap
 }];
 
 interface StepType {
