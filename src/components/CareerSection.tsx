@@ -22,10 +22,6 @@ const journeySteps = [{
   type: "education",
   icon: GraduationCap,
   side: "right" as const,
-  description: [
-    "Honored in Dean's Honor List"
-    "Relevant Courses: Python, SQL, Machine Learning, SPSS, Power BI, Data Governance, Big Data, R Programming, Hadoop",
-  ]
 }, {
   title: "Senior Data Consultant",
   role: "IBM",
@@ -60,9 +56,6 @@ const journeySteps = [{
   type: "education",
   icon: GraduationCap,
   side: "right" as const,
-  description: [
-    "Relevant Courses: Java, Image Processing, Neural Networks, Speech Processing",
-  ]
 }];
 
 interface StepType {
