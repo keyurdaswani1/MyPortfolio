@@ -2,12 +2,20 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Building2, GraduationCap, ArrowDown } from "lucide-react";
 
+// Import company/institution logos
+import vizruLogo from "@/assets/vizru-logo.png";
+import humberLogo from "@/assets/humber-logo.png";
+import ibmLogo from "@/assets/ibm-logo.jpg";
+import accentureLogo from "@/assets/accenture-logo.png";
+import vesLogo from "@/assets/ves-logo.png";
+
 const journeySteps = [{
   title: "Data Analyst Co-op",
   role: "Vizru",
   period: "2025",
   type: "work",
   icon: Building2,
+  logo: vizruLogo,
   side: "left" as const,
   description: [
     "Performed end-to-end data analysis using Python and SQL, from data cleaning and feature engineering to insight generation",
@@ -21,6 +29,7 @@ const journeySteps = [{
   period: "2023 - 2025",
   type: "education",
   icon: GraduationCap,
+  logo: humberLogo,
   side: "right" as const,
   description: [
     "Honored in Dean's Honor List",
@@ -32,6 +41,7 @@ const journeySteps = [{
   period: "2022 - 2023",
   type: "work",
   icon: Building2,
+  logo: ibmLogo,
   side: "left" as const,
   description: [
     "Designed and implemented large-scale data analysis workflows using Python and PySpark for high-volume datasets",
@@ -46,6 +56,7 @@ const journeySteps = [{
   period: "2018 - 2022",
   type: "work",
   icon: Building2,
+  logo: accentureLogo,
   side: "left" as const,
   description: [
     "Led enterprise data analysis initiatives by integrating complex SAP data into centralized analytics platforms",
@@ -59,6 +70,7 @@ const journeySteps = [{
   period: "2015 - 2018",
   type: "education",
   icon: GraduationCap,
+  logo: vesLogo,
   side: "right" as const,
   description: [
     "Relevant Courses: Java, Image Processing, Neural Networks, Speech Processing, Advanced Communication"
@@ -71,6 +83,7 @@ interface StepType {
   period: string;
   type: string;
   icon: typeof Building2;
+  logo: string;
   side: "left" | "right";
   description?: string[];
 }
@@ -112,9 +125,13 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
               initial={{ rotate: -10, scale: 0.8 }}
               animate={isCardInView ? { rotate: 0, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 200 }}
-              className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isWork ? "bg-primary/10" : "bg-emerald-500/10"}`}
+              className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-white p-1.5 border border-border/30"
             >
-              <Icon className={`w-5 h-5 ${isWork ? "text-primary" : "text-emerald-500"}`} />
+              <img 
+                src={step.logo} 
+                alt={`${step.role} logo`} 
+                className="w-full h-full object-contain"
+              />
             </motion.div>
             <div className={`flex-1 ${isLeft ? "md:text-right" : ""}`}>
               <h4 className={`font-bold text-foreground ${isWork ? "group-hover:text-primary" : "group-hover:text-emerald-500"} transition-colors`}>
