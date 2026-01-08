@@ -14,12 +14,12 @@ const Index = () => {
       <main className="min-h-screen bg-background">
         <Navbar />
         <HeroSection />
-        <AboutSection className="text-primary-foreground bg-[sidebar-accent-foreground] bg-slate-950" />
-        <ProjectsSection className="bg-slate-950" />
-        <SkillsSection className="bg-slate-950" />
-        <CareerSection className="bg-slate-950" />
-        <ContactSection className="bg-slate-950" />
-        <Footer className="bg-slate-950" />
+        <AboutSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <CareerSection />
+        <ContactSection />
+        <Footer />
       </main>
     </ThemeProvider>
   );
