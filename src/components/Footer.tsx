@@ -11,7 +11,7 @@ const Footer = ({
       behavior: "smooth"
     });
   };
-  return <footer className={`bg-card border-t border-border py-12 ${className || ''}`}>
+  return <footer className={`bg-background border-t border-border py-12 ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}

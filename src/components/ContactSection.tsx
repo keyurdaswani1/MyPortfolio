@@ -28,7 +28,7 @@ const ContactSection = ({
     value: "keyur-daswani",
     href: "https://www.linkedin.com/in/keyur-daswani/"
   }];
-  return <section id="contact" className={`py-12 lg:py-16 ${className || ""}`}>
+  return <section id="contact" className={`py-12 lg:py-16 bg-background ${className || ""}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div ref={ref} initial={{
         opacity: 0,
