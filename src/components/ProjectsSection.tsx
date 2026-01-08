@@ -37,7 +37,7 @@ const ProjectsSection = ({ className }: { className?: string }) => {
     once: true,
     margin: "-100px"
   });
-  return <section id="projects" className={`py-12 lg:py-16 bg-muted/30 ${className || ''}`}>
+  return <section id="projects" className={`py-12 lg:py-16 bg-background ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div ref={ref} initial={{
         opacity: 0,
