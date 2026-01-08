@@ -51,7 +51,7 @@ const AboutSection = ({ className }: { className?: string }) => {
           } : {}} transition={{
             duration: 0.6,
             delay: 0.4
-          }} className="leading-relaxed text-lg font-medium text-primary-foreground">
+          }} className="leading-relaxed text-lg font-medium text-foreground">
               My work includes designing scalable solutions using <span className="text-primary font-semibold">Machine learning & AI</span>, along with cloud platforms such as <span className="text-primary font-semibold">Azure & Snowflake</span>. I also apply <span className="text-primary font-semibold">Python, PySpark & SQL </span> to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <span className="text-primary font-semibold">Power BI dashboards</span> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
             </motion.p>
 
@@ -64,7 +64,7 @@ const AboutSection = ({ className }: { className?: string }) => {
           } : {}} transition={{
             duration: 0.6,
             delay: 0.6
-          }} className="leading-relaxed text-lg text-primary-foreground">
+          }} className="leading-relaxed text-lg text-foreground">
               What drives me is working through messy data, aligning technical solutions with business needs and delivering insights that are reliable and actionable.
             </motion.p>
           </div>
