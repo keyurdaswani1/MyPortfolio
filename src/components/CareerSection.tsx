@@ -120,18 +120,25 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
           onHoverEnd={() => setIsHovered(false)}
           className={`group p-4 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 ${isWork ? "hover:border-primary/50 hover:shadow-primary/10" : "hover:border-emerald-500/50 hover:shadow-emerald-500/10"} transition-all duration-300 hover:shadow-lg`}
         >
-          <div className={`flex items-center gap-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
+          <div className={`flex items-center gap-4 ${isLeft ? "md:flex-row-reverse" : ""}`}>
             <motion.div
               initial={{ rotate: -10, scale: 0.8 }}
               animate={isCardInView ? { rotate: 0, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 200 }}
-              className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-white p-1.5 border border-border/30"
+              whileHover={{ scale: 1.1, rotate: 3 }}
+              className={`relative w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 bg-white p-2 shadow-lg border-2 ${isWork ? "border-primary/30 shadow-primary/20" : "border-emerald-500/30 shadow-emerald-500/20"}`}
             >
+              {/* Decorative ring */}
+              <div className={`absolute inset-0 rounded-2xl ${isWork ? "bg-gradient-to-br from-primary/10 to-transparent" : "bg-gradient-to-br from-emerald-500/10 to-transparent"}`} />
               <img 
                 src={step.logo} 
                 alt={`${step.role} logo`} 
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain relative z-10"
               />
+              {/* Corner accent */}
+              <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${isWork ? "bg-primary" : "bg-emerald-500"} flex items-center justify-center`}>
+                <Icon className="w-2 h-2 text-white" />
+              </div>
             </motion.div>
             <div className={`flex-1 ${isLeft ? "md:text-right" : ""}`}>
               <h4 className={`font-bold text-foreground ${isWork ? "group-hover:text-primary" : "group-hover:text-emerald-500"} transition-colors`}>
