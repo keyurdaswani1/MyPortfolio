@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Building2, GraduationCap, ArrowDown, ArrowRight, ArrowLeft } from "lucide-react";
+import { Building2, GraduationCap, ArrowDown } from "lucide-react";
 
 // Import company/institution logos
 import vizruLogo from "@/assets/vizru-logo.png";
@@ -135,18 +135,10 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
                 alt={`${step.role} logo`} 
                 className="w-full h-full object-contain relative z-10"
               />
-              {/* Arrow pointing to timeline */}
-              <motion.div 
-                className={`absolute top-1/2 -translate-y-1/2 ${isLeft ? "-right-4" : "-left-4"}`}
-                animate={{ x: isLeft ? [0, 3, 0] : [0, -3, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              >
-                {isLeft ? (
-                  <ArrowRight className={`w-4 h-4 ${isWork ? "text-primary" : "text-emerald-500"}`} />
-                ) : (
-                  <ArrowLeft className={`w-4 h-4 ${isWork ? "text-primary" : "text-emerald-500"}`} />
-                )}
-              </motion.div>
+              {/* Corner accent */}
+              <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${isWork ? "bg-primary" : "bg-emerald-500"} flex items-center justify-center`}>
+                <Icon className="w-2 h-2 text-white" />
+              </div>
             </motion.div>
             <div className={`flex-1 ${isLeft ? "md:text-right" : ""}`}>
               <h4 className={`font-bold text-foreground ${isWork ? "group-hover:text-primary" : "group-hover:text-emerald-500"} transition-colors`}>
