@@ -33,6 +33,9 @@ const SAPIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="current
 const CPIIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
   </svg>;
+const DatabricksIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+    <path d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2zm0 2.18l7.27 4L12 12.18l-7.27-4L12 4.18zM4 9.27l7 3.85v6.61l-7-3.85V9.27zm9 10.46v-6.61l7-3.85v6.61l-7 3.85z" />
+  </svg>;
 const MicrosoftIcon = () => <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
     <path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z" />
   </svg>;
@@ -76,6 +79,10 @@ const tools = [{
   name: "SAP CPI",
   Icon: CPIIcon,
   color: "from-teal-500 to-cyan-500"
+}, {
+  name: "Databricks",
+  Icon: DatabricksIcon,
+  color: "from-red-500 to-orange-500"
 }];
 const certifications = [{
   name: "Power BI Developer Associate",
