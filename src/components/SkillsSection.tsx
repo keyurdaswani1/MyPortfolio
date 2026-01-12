@@ -4,6 +4,7 @@ import { ExternalLink } from "lucide-react";
 
 // Import logo images
 import pythonLogo from "@/assets/python-logo.jfif";
+import sqlLogo from "@/assets/sql-logo.jpeg";
 import powerbiLogo from "@/assets/powerbi-logo.png";
 import tableauLogo from "@/assets/tableau-logo.png";
 import excelLogo from "@/assets/excel-logo.png";
@@ -14,19 +15,13 @@ import sapS4HanaLogo from "@/assets/sap-s4hana-logo.jpeg";
 import sapCpiLogo from "@/assets/sap-cpi-logo.jpg";
 import databricksLogo from "@/assets/databricks-logo.jpeg";
 
-// SQL icon (keeping as SVG since no image was provided)
-const SQLIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm6 12c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V17zm0-4c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V13zm0-4c0 .5-2.13 2-6 2s-6-1.5-6-2V6.77c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V9z" />
-  </svg>;
-
 const MicrosoftIcon = () => <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
     <path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z" />
   </svg>;
 
 type ToolType = {
   name: string;
-  image?: string;
-  Icon?: React.ComponentType;
+  image: string;
 };
 
 const tools: ToolType[] = [{
@@ -34,7 +29,7 @@ const tools: ToolType[] = [{
   image: pythonLogo
 }, {
   name: "SQL",
-  Icon: SQLIcon
+  image: sqlLogo
 }, {
   name: "ML / AI",
   image: mlaiLogo
@@ -127,16 +122,12 @@ const SkillsSection = ({ className }: { className?: string }) => {
                     className="group relative p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center transition-transform group-hover:scale-110 shadow-md overflow-hidden">
-                        {tool.image ? (
-                          <img 
-                            src={tool.image} 
-                            alt={tool.name} 
-                            className="w-full h-full object-contain p-1"
-                          />
-                        ) : tool.Icon ? (
-                          <tool.Icon />
-                        ) : null}
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 overflow-hidden ring-1 ring-white/10">
+                        <img 
+                          src={tool.image} 
+                          alt={tool.name} 
+                          className="w-9 h-9 object-contain brightness-110 contrast-105 drop-shadow-sm"
+                        />
                       </div>
                       <span className="font-medium text-foreground text-sm">{tool.name}</span>
                     </div>
