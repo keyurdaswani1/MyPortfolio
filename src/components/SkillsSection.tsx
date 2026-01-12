@@ -125,7 +125,9 @@ const SkillsSection = ({ className }: { className?: string }) => {
                       <img 
                         src={tool.image} 
                         alt={tool.name} 
-                        className="w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
+                        className={`w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110 ${
+                          ['Power BI', 'Tableau', 'Databricks'].includes(tool.name) ? 'invert dark:invert-0' : ''
+                        }`}
                       />
                       <span className="font-medium text-foreground">{tool.name}</span>
                     </div>
