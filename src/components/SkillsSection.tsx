@@ -121,15 +121,13 @@ const SkillsSection = ({ className }: { className?: string }) => {
                     transition={{ duration: 0.4, delay: 0.05 * index }} 
                     className="group relative p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/20 overflow-hidden ring-1 ring-white/10">
-                        <img 
-                          src={tool.image} 
-                          alt={tool.name} 
-                          className="w-9 h-9 object-contain brightness-110 contrast-105 drop-shadow-sm"
-                        />
-                      </div>
-                      <span className="font-medium text-foreground text-sm">{tool.name}</span>
+                    <div className="flex items-center gap-4">
+                      <img 
+                        src={tool.image} 
+                        alt={tool.name} 
+                        className="w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <span className="font-medium text-foreground">{tool.name}</span>
                     </div>
                   </motion.div>
                 ))}
