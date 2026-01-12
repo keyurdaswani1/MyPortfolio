@@ -2,88 +2,68 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
-// Custom SVG icons for brand logos
-const PythonIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z" />
-  </svg>;
+// Import logo images
+import pythonLogo from "@/assets/python-logo.jfif";
+import powerbiLogo from "@/assets/powerbi-logo.png";
+import tableauLogo from "@/assets/tableau-logo.png";
+import excelLogo from "@/assets/excel-logo.png";
+import snowflakeLogo from "@/assets/snowflake-logo.png";
+import azureLogo from "@/assets/azure-logo.jpeg";
+import mlaiLogo from "@/assets/ml-ai-logo.jpeg";
+import sapS4HanaLogo from "@/assets/sap-s4hana-logo.jpeg";
+import sapCpiLogo from "@/assets/sap-cpi-logo.jpg";
+import databricksLogo from "@/assets/databricks-logo.jpeg";
+
+// SQL icon (keeping as SVG since no image was provided)
 const SQLIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
     <path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm6 12c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V17zm0-4c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V13zm0-4c0 .5-2.13 2-6 2s-6-1.5-6-2V6.77c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23V9z" />
   </svg>;
-const PowerBIIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M10.5 3A1.5 1.5 0 0 0 9 4.5v15A1.5 1.5 0 0 0 10.5 21h3a1.5 1.5 0 0 0 1.5-1.5v-15A1.5 1.5 0 0 0 13.5 3h-3zM3 9.5A1.5 1.5 0 0 1 4.5 8h3A1.5 1.5 0 0 1 9 9.5v10A1.5 1.5 0 0 1 7.5 21h-3A1.5 1.5 0 0 1 3 19.5v-10zM16.5 6A1.5 1.5 0 0 0 15 7.5v12a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 19.5 6h-3z" />
-  </svg>;
-const ExcelIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2l5 5h-5V4zM8.5 19l2-3-2-3h1.5l1.25 2 1.25-2H14l-2 3 2 3h-1.5l-1.25-2-1.25 2H8.5z" />
-  </svg>;
-const SnowflakeIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M12.5 2v4.5L15 5l1 1.5-3.5 2v3l2.5-1.5 1-3L18 4.5l.5 1.5-1.5 1 1.5 1 .5 1.5L17 9l-1 3 3.5 2L21 12.5l1 1.5-2.5 1.5V20h-1.5l-1-3-3.5 2v3h-1v-4.5L10 19.5l-1-1.5 3.5-2v-3L10 14.5l-1 3L7 18l-.5-1.5 1.5-1-1.5-1L6 14l2-1.5 1-3-3.5-2L4 9l-1-1.5 2.5-1.5V2h1.5l1 3 3.5-2V0h1v2z" />
-  </svg>;
-const AzureIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M13.05 4.24L6.56 18.05L2 18l3.56-6.47L13.05 4.24zM13.75 5.33l4.26 11.18-7.39 1.67 8.35-.02L22 19.67H7.6l6.15-14.34z" />
-  </svg>;
-const MLAIIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z" />
-  </svg>;
-const TableauIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M11.654 5.327v2.135H9.19V5.327h-.876V4.07h.876V1.936h1.464V4.07h2.464v1.257zm0 8.673v2.135H9.19V14h-.876v-1.257h.876v-2.135h1.464v2.135h2.464V14zm-4.654 5.673v2.135H4.536v-2.135h-.876v-1.257h.876v-2.135H6v2.135h2.464v1.257zm0-11.346V6.192H4.536V4.057h-.876V2.8h.876V.665H6V2.8h2.464v1.257zM17.464 19.673v2.135H15v-2.135h-.876v-1.257H15v-2.135h1.464v2.135h2.464v1.257zm0-11.346V6.192H15V4.057h-.876V2.8H15V.665h1.464V2.8h2.464v1.257zm4.536 5.673v2.135H19.536V14h-.876v-1.257h.876v-2.135H21v2.135h2.464V14zm-4.536 0v2.135H15V14h-.876v-1.257H15v-2.135h1.464v2.135h2.464V14zM7 14v2.135H4.536V14h-.876v-1.257h.876v-2.135H6v2.135h2.464V14zm5.654 5.673v2.135H9.19v-2.135h-.876v-1.257h.876v-2.135h1.464v2.135h2.464v1.257z" />
-  </svg>;
-const SAPIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M0 6.986v10.028h24V6.986zm4.156 2.476l1.28 3.626h.038l1.26-3.626h1.67l-2.194 5.535H4.81L2.617 9.462zm6.672 0v1.234h1.69v-.002c.564 0 .852.282.852.69 0 .406-.288.704-.852.704h-1.69v1.654h1.69c1.278 0 2.14-.704 2.14-1.855 0-.518-.178-.948-.494-1.266-.322-.326-.784-.541-1.406-.576v-.002h-.004c-.078-.006-.158-.008-.236-.008h-1.69zm5.64 0l-2.195 5.535h1.398l.38-1.022h2.234l.378 1.022h1.398l-2.193-5.535zm.7 1.532l.694 1.866h-1.388l.656-1.866z" />
-  </svg>;
-const CPIIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-  </svg>;
-const DatabricksIcon = () => <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
-    <path d="M12 2L2 7.5v9L12 22l10-5.5v-9L12 2zm0 2.18l7.27 4L12 12.18l-7.27-4L12 4.18zM4 9.27l7 3.85v6.61l-7-3.85V9.27zm9 10.46v-6.61l7-3.85v6.61l-7 3.85z" />
-  </svg>;
+
 const MicrosoftIcon = () => <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
     <path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z" />
   </svg>;
-const tools = [{
+
+type ToolType = {
+  name: string;
+  image?: string;
+  Icon?: React.ComponentType;
+};
+
+const tools: ToolType[] = [{
   name: "Python",
-  Icon: PythonIcon,
-  color: "from-yellow-400 to-blue-500"
+  image: pythonLogo
 }, {
   name: "SQL",
-  Icon: SQLIcon,
-  color: "from-cyan-500 to-blue-600"
+  Icon: SQLIcon
 }, {
   name: "ML / AI",
-  Icon: MLAIIcon,
-  color: "from-purple-500 to-pink-500"
+  image: mlaiLogo
 }, {
   name: "Power BI",
-  Icon: PowerBIIcon,
-  color: "from-amber-500 to-yellow-500"
+  image: powerbiLogo
 }, {
   name: "Tableau",
-  Icon: TableauIcon,
-  color: "from-blue-600 to-indigo-500"
+  image: tableauLogo
 }, {
   name: "Excel",
-  Icon: ExcelIcon,
-  color: "from-emerald-500 to-green-600"
+  image: excelLogo
 }, {
   name: "Snowflake",
-  Icon: SnowflakeIcon,
-  color: "from-sky-400 to-blue-500"
+  image: snowflakeLogo
 }, {
   name: "Azure",
-  Icon: AzureIcon,
-  color: "from-blue-500 to-cyan-400"
+  image: azureLogo
 }, {
   name: "SAP S/4HANA",
-  Icon: SAPIcon,
-  color: "from-blue-600 to-indigo-600"
+  image: sapS4HanaLogo
 }, {
   name: "SAP CPI",
-  Icon: CPIIcon,
-  color: "from-teal-500 to-cyan-500"
+  image: sapCpiLogo
 }, {
   name: "Databricks",
-  Icon: DatabricksIcon,
-  color: "from-red-500 to-orange-500"
+  image: databricksLogo
 }];
+
 const certifications = [{
   name: "Power BI Developer Associate",
   code: "PL-300",
@@ -105,12 +85,14 @@ const certifications = [{
   color: "from-pink-500 to-rose-500",
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/5E490F2B3BCC5D60?sharingId=D7A82B50A61A675A"
 }];
+
 const SkillsSection = ({ className }: { className?: string }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px"
   });
+
   return <section id="skills" className={`py-12 lg:py-16 bg-background ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div ref={ref} initial={{
@@ -123,9 +105,7 @@ const SkillsSection = ({ className }: { className?: string }) => {
         duration: 0.6
       }}>
           <div className="text-center mb-16">
-            
             <span className="text-gradient text-sm font-semibold">SKILLS & CERTIFICATIONS</span>
-           
           </div>
 
           {/* Two Column Layout */}
@@ -138,26 +118,30 @@ const SkillsSection = ({ className }: { className?: string }) => {
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-                {tools.map((tool, index) => {
-                const IconComponent = tool.Icon;
-                return <motion.div key={tool.name} initial={{
-                  opacity: 0,
-                  scale: 0.9
-                }} animate={isInView ? {
-                  opacity: 1,
-                  scale: 1
-                } : {}} transition={{
-                  duration: 0.4,
-                  delay: 0.05 * index
-                }} className="group relative p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${tool.color} flex items-center justify-center transition-transform group-hover:scale-110 text-white shadow-md`}>
-                          <IconComponent />
-                        </div>
-                        <span className="font-medium text-foreground text-sm">{tool.name}</span>
+                {tools.map((tool, index) => (
+                  <motion.div 
+                    key={tool.name} 
+                    initial={{ opacity: 0, scale: 0.9 }} 
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}} 
+                    transition={{ duration: 0.4, delay: 0.05 * index }} 
+                    className="group relative p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center transition-transform group-hover:scale-110 shadow-md overflow-hidden">
+                        {tool.image ? (
+                          <img 
+                            src={tool.image} 
+                            alt={tool.name} 
+                            className="w-full h-full object-contain p-1"
+                          />
+                        ) : tool.Icon ? (
+                          <tool.Icon />
+                        ) : null}
                       </div>
-                    </motion.div>;
-              })}
+                      <span className="font-medium text-foreground text-sm">{tool.name}</span>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
@@ -169,17 +153,16 @@ const SkillsSection = ({ className }: { className?: string }) => {
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {certifications.map((cert, index) => <motion.div key={cert.code} initial={{
-                opacity: 0,
-                scale: 0.9
-              }} animate={isInView ? {
-                opacity: 1,
-                scale: 1
-              } : {}} transition={{
-                duration: 0.4,
-                delay: 0.1 * index
-              }} className="group">
-                    {cert.url ? <a href={cert.url} target="_blank" rel="noopener noreferrer" className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full">
+                {certifications.map((cert, index) => (
+                  <motion.div 
+                    key={cert.code} 
+                    initial={{ opacity: 0, scale: 0.9 }} 
+                    animate={isInView ? { opacity: 1, scale: 1 } : {}} 
+                    transition={{ duration: 0.4, delay: 0.1 * index }} 
+                    className="group"
+                  >
+                    {cert.url ? (
+                      <a href={cert.url} target="_blank" rel="noopener noreferrer" className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full">
                         <div className={`w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br ${cert.color} p-2.5 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                           <MicrosoftIcon />
                         </div>
@@ -192,7 +175,9 @@ const SkillsSection = ({ className }: { className?: string }) => {
                             <ExternalLink className="w-3 h-3" />
                           </span>
                         </div>
-                      </a> : <div className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full">
+                      </a>
+                    ) : (
+                      <div className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full">
                         <div className={`w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br ${cert.color} p-2.5 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                           <MicrosoftIcon />
                         </div>
@@ -204,8 +189,10 @@ const SkillsSection = ({ className }: { className?: string }) => {
                             {cert.code}
                           </span>
                         </div>
-                      </div>}
-                  </motion.div>)}
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
@@ -213,4 +200,5 @@ const SkillsSection = ({ className }: { className?: string }) => {
       </div>
     </section>;
 };
+
 export default SkillsSection;
