@@ -1,17 +1,37 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Linkedin, Github } from "lucide-react";
+import { ArrowRight, Download, Linkedin, Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/keyur-profile.png";
 import heroPattern from "@/assets/hero-pattern.png";
-const socials = [{
-  icon: Linkedin,
-  label: "LinkedIn",
-  href: "https://www.linkedin.com/in/keyur-daswani/"
+
+// Import certification badge images
+import microsoftPL300Badge from "@/assets/microsoft-pl300-badge.jpg";
+import azureAIBadge from "@/assets/azure-ai-badge.png";
+import azureAZBadge from "@/assets/azure-az-badge.png";
+import azureDPBadge from "@/assets/azure-dp-badge.png";
+
+const certifications = [{
+  name: "Power BI Data Analyst",
+  code: "PL-300",
+  badge: microsoftPL300Badge,
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/"
 }, {
-  icon: Github,
-  label: "GitHub",
-  href: "https://github.com/keyurdaswani1/"
+  name: "Azure Fundamentals",
+  code: "AZ-900",
+  badge: azureAZBadge,
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/C3065EDAAE249D48?sharingId=D7A82B50A61A675A"
+}, {
+  name: "Azure Data Fundamentals",
+  code: "DP-900",
+  badge: azureDPBadge,
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/198FC67FBA99E598?sharingId=D7A82B50A61A675A"
+}, {
+  name: "Azure AI Fundamentals",
+  code: "AI-900",
+  badge: azureAIBadge,
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/5E490F2B3BCC5D60?sharingId=D7A82B50A61A675A"
 }];
+
 const HeroSection = () => {
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
@@ -121,7 +141,7 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Profile Image */}
+          {/* Profile Image & Certifications */}
           <motion.div initial={{
           opacity: 0,
           scale: 0.8
@@ -131,7 +151,7 @@ const HeroSection = () => {
         }} transition={{
           duration: 0.8,
           delay: 0.3
-        }} className="order-1 lg:order-2 flex justify-center">
+        }} className="order-1 lg:order-2 flex flex-col items-center gap-8">
             <div className="relative">
               {/* Animated rings */}
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20 blur-3xl animate-pulse-slow" />
@@ -144,10 +164,46 @@ const HeroSection = () => {
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-glow">
                 <img src={profileImage} alt="Keyur Daswani - Data Analyst" className="w-full h-full object-cover" />
               </div>
-
-              {/* Connect Links */}
-              
             </div>
+
+            {/* Certifications */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9 }}
+              className="w-full max-w-md"
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+              </div>
+              <div className="grid grid-cols-4 gap-3">
+                {certifications.map((cert, index) => (
+                  <motion.a
+                    key={cert.code}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1 + index * 0.1 }}
+                    className="group relative flex flex-col items-center gap-1 p-2 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
+                    title={`${cert.name} (${cert.code})`}
+                  >
+                    <img 
+                      src={cert.badge} 
+                      alt={cert.name}
+                      className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <span className="text-[10px] font-mono text-primary font-medium flex items-center gap-0.5">
+                      {cert.code}
+                      <ExternalLink className="w-2 h-2" />
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
