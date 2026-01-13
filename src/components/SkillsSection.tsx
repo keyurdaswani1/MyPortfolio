@@ -74,24 +74,46 @@ const SkillsSection = ({ className }: { className?: string }) => {
             <span className="text-gradient text-sm font-semibold">SKILLS & TECHNOLOGIES</span>
           </div>
 
-          {/* Static Grid Skills - 2 rows */}
-          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-            {tools.map((tool, index) => (
-              <motion.div 
-                key={tool.name}
-                initial={{ opacity: 0, scale: 0.9 }} 
-                animate={isInView ? { opacity: 1, scale: 1 } : {}} 
-                transition={{ duration: 0.4, delay: 0.05 * index }} 
-                className="group flex flex-col items-center gap-3 p-4 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 w-[100px] sm:w-[120px]"
-              >
-                <img 
-                  src={tool.image} 
-                  alt={tool.name} 
-                  className="w-12 h-12 sm:w-14 sm:h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
-                />
-                <span className="font-medium text-foreground text-xs sm:text-sm text-center whitespace-nowrap">{tool.name}</span>
-              </motion.div>
-            ))}
+          {/* Horizontal Scrolling Skills */}
+          <div className="relative overflow-hidden">
+            {/* Gradient fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+            
+            {/* Scrolling container */}
+            <div className="flex gap-6 animate-scroll-x hover:pause-animation">
+              {/* First set of skills */}
+              {tools.map((tool, index) => (
+                <motion.div 
+                  key={`first-${tool.name}`}
+                  initial={{ opacity: 0, scale: 0.9 }} 
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}} 
+                  transition={{ duration: 0.4, delay: 0.05 * index }} 
+                  className="group flex-shrink-0 flex flex-col items-center gap-3 p-5 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 min-w-[120px]"
+                >
+                  <img 
+                    src={tool.image} 
+                    alt={tool.name} 
+                    className="w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <span className="font-medium text-foreground text-sm text-center whitespace-nowrap">{tool.name}</span>
+                </motion.div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {tools.map((tool) => (
+                <div 
+                  key={`second-${tool.name}`}
+                  className="group flex-shrink-0 flex flex-col items-center gap-3 p-5 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 min-w-[120px]"
+                >
+                  <img 
+                    src={tool.image} 
+                    alt={tool.name} 
+                    className="w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <span className="font-medium text-foreground text-sm text-center whitespace-nowrap">{tool.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
