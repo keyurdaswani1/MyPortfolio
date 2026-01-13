@@ -15,9 +15,11 @@ import sapS4HanaLogo from "@/assets/sap-s4hana-logo.jpeg";
 import sapCpiLogo from "@/assets/sap-cpi-logo.jpg";
 import databricksLogo from "@/assets/databricks-logo.jpeg";
 
-const MicrosoftIcon = () => <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
-    <path d="M0 0h11.5v11.5H0V0zm12.5 0H24v11.5H12.5V0zM0 12.5h11.5V24H0V12.5zm12.5 0H24V24H12.5V12.5z" />
-  </svg>;
+// Import certification badge images
+import microsoftPL300Badge from "@/assets/microsoft-pl300-badge.jpg";
+import azureAIBadge from "@/assets/azure-ai-badge.png";
+import azureAZBadge from "@/assets/azure-az-badge.png";
+import azureDPBadge from "@/assets/azure-dp-badge.png";
 
 type ToolType = {
   name: string;
@@ -62,22 +64,22 @@ const tools: ToolType[] = [{
 const certifications = [{
   name: "Power BI Developer Associate",
   code: "PL-300",
-  color: "from-amber-500 to-yellow-500",
+  badge: microsoftPL300Badge,
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/"
 }, {
   name: "Azure Fundamentals",
   code: "AZ-900",
-  color: "from-blue-500 to-cyan-400",
+  badge: azureAZBadge,
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/C3065EDAAE249D48?sharingId=D7A82B50A61A675A"
 }, {
-  name: "Azure Data Professional",
+  name: "Azure Data Fundamentals",
   code: "DP-900",
-  color: "from-purple-500 to-indigo-500",
+  badge: azureDPBadge,
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/198FC67FBA99E598?sharingId=D7A82B50A61A675A"
 }, {
   name: "Azure AI Fundamentals",
   code: "AI-900",
-  color: "from-pink-500 to-rose-500",
+  badge: azureAIBadge,
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/5E490F2B3BCC5D60?sharingId=D7A82B50A61A675A"
 }];
 
@@ -125,9 +127,7 @@ const SkillsSection = ({ className }: { className?: string }) => {
                       <img 
                         src={tool.image} 
                         alt={tool.name} 
-                        className={`w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110 ${
-                          ['Power BI', 'Tableau', 'Databricks'].includes(tool.name) ? 'invert dark:invert-0' : ''
-                        }`}
+                        className="w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
                       />
                       <span className="font-medium text-foreground">{tool.name}</span>
                     </div>
@@ -154,9 +154,11 @@ const SkillsSection = ({ className }: { className?: string }) => {
                   >
                     {cert.url ? (
                       <a href={cert.url} target="_blank" rel="noopener noreferrer" className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full">
-                        <div className={`w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br ${cert.color} p-2.5 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                          <MicrosoftIcon />
-                        </div>
+                        <img 
+                          src={cert.badge} 
+                          alt={cert.name}
+                          className="w-16 h-16 object-contain shrink-0 group-hover:scale-110 transition-transform duration-300"
+                        />
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-foreground text-sm leading-tight mb-1">
                             {cert.name}
@@ -169,9 +171,11 @@ const SkillsSection = ({ className }: { className?: string }) => {
                       </a>
                     ) : (
                       <div className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 h-full">
-                        <div className={`w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br ${cert.color} p-2.5 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                          <MicrosoftIcon />
-                        </div>
+                        <img 
+                          src={cert.badge} 
+                          alt={cert.name}
+                          className="w-16 h-16 object-contain shrink-0 group-hover:scale-110 transition-transform duration-300"
+                        />
                         <div className="flex-1 min-w-0">
                           <h4 className="font-medium text-foreground text-sm leading-tight mb-1">
                             {cert.name}
