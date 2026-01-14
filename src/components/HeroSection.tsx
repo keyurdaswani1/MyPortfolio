@@ -41,13 +41,13 @@ const HeroSection = () => {
   };
   return <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-40" style={{
+      <div className="absolute inset-0 opacity-40 -z-10" style={{
       backgroundImage: `url(${heroPattern})`,
       backgroundSize: "cover",
       backgroundPosition: "center bottom"
     }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
-      <div className="absolute inset-0 data-grid-bg dark:bg-[#010118]/[0.79]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background -z-10" />
+      <div className="absolute inset-0 data-grid-bg -z-10" />
 
       {/* Social Links - Top Right */}
       <div className="fixed top-5 right-4 lg:right-8 flex gap-3 z-[60]">
