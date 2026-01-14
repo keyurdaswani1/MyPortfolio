@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Building2, GraduationCap, ArrowDown } from "lucide-react";
 
 // Import company/institution logos
@@ -91,7 +91,6 @@ interface StepType {
 const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, { once: true, margin: "-50px" });
-  const [isHovered, setIsHovered] = useState(false);
   
   const isLeft = step.side === "left";
   const Icon = step.icon;
@@ -107,7 +106,7 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
         duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      className={`relative md:flex items-center ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+      className={`relative md:flex items-start ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       {/* Card */}
       <div className={`md:w-[calc(50%-2rem)] ${isLeft ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}`}>
@@ -115,17 +114,13 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
           initial={{ scale: 0.95 }}
           animate={isCardInView ? { scale: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
-          whileHover={{ scale: 1.02, y: -4 }}
-          onHoverStart={() => setIsHovered(true)}
-          onHoverEnd={() => setIsHovered(false)}
-          className={`group p-4 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 ${isWork ? "hover:border-primary/50 hover:shadow-primary/10" : "hover:border-emerald-500/50 hover:shadow-emerald-500/10"} transition-all duration-300 hover:shadow-lg`}
+          className={`group p-5 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 ${isWork ? "border-primary/30" : "border-emerald-500/30"} transition-all duration-300`}
         >
           <div className={`flex items-center gap-4 ${isLeft ? "md:flex-row-reverse" : ""}`}>
             <motion.div
               initial={{ rotate: -10, scale: 0.8 }}
               animate={isCardInView ? { rotate: 0, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 200 }}
-              whileHover={{ scale: 1.1, rotate: 3 }}
               className={`relative w-16 h-16 rounded-2xl flex items-center justify-center shrink-0 bg-white p-2 shadow-lg border-2 ${isWork ? "border-primary/30 shadow-primary/20" : "border-emerald-500/30 shadow-emerald-500/20"}`}
             >
               {/* Decorative ring */}
@@ -141,50 +136,46 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
               </div>
             </motion.div>
             <div className={`flex-1 ${isLeft ? "md:text-right" : ""}`}>
-              <h4 className={`font-bold text-foreground ${isWork ? "group-hover:text-primary" : "group-hover:text-emerald-500"} transition-colors`}>
+              <h4 className={`font-bold text-lg text-foreground ${isWork ? "text-primary" : "text-emerald-500"}`}>
                 {step.title}
               </h4>
-              <p className="text-sm text-muted-foreground">{step.role}</p>
+              <p className="text-base text-muted-foreground font-medium">{step.role}</p>
             </div>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={isCardInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className={`mt-2 ${isLeft ? "md:text-right" : ""}`}
+            className={`mt-3 ${isLeft ? "md:text-right" : ""}`}
           >
-            <span className={`inline-block text-xs font-mono px-2 py-1 rounded-md ${isWork ? "text-primary bg-primary/10" : "text-emerald-500 bg-emerald-500/10"}`}>
+            <span className={`inline-block text-sm font-mono px-3 py-1.5 rounded-md ${isWork ? "text-primary bg-primary/10" : "text-emerald-500 bg-emerald-500/10"}`}>
               {step.period}
             </span>
           </motion.div>
 
-          {/* Hover description */}
-          <AnimatePresence>
-            {isHovered && hasDescription && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
-              >
-                <ul className={`mt-4 space-y-2 text-left border-t border-border/30 pt-4`}>
-                  {step.description?.map((item, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.2, delay: i * 0.05 }}
-                      className="flex gap-2 text-xs text-muted-foreground"
-                    >
-                      <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${isWork ? "bg-primary" : "bg-emerald-500"}`} />
-                      <span>{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Always visible description */}
+          {hasDescription && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isCardInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.4, delay: 0.4 }}
+            >
+              <ul className={`mt-4 space-y-2.5 text-left border-t border-border/30 pt-4`}>
+                {step.description?.map((item, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={isCardInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.3, delay: 0.5 + i * 0.05 }}
+                    className="flex gap-2.5 text-sm text-foreground/80"
+                  >
+                    <span className={`mt-2 w-1.5 h-1.5 rounded-full shrink-0 ${isWork ? "bg-primary" : "bg-emerald-500"}`} />
+                    <span className="leading-relaxed">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 
@@ -193,7 +184,7 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
         initial={{ scale: 0, opacity: 0 }}
         animate={isCardInView ? { scale: 1, opacity: 1 } : {}}
         transition={{ duration: 0.4, delay: 0.15, type: "spring", stiffness: 300 }}
-        className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4"
+        className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 top-8"
       >
         <div className={`w-4 h-4 rounded-full ${isWork ? "bg-primary" : "bg-emerald-500"} border-4 border-background shadow-lg`} />
       </motion.div>
@@ -204,7 +195,7 @@ const CareerCard = ({ step, index }: { step: StepType; index: number }) => {
           initial={{ opacity: 0 }}
           animate={isCardInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.3, delay: 0.4 }}
-          className="flex justify-center py-2 md:hidden"
+          className="flex justify-center py-3 md:hidden"
         >
           <ArrowDown className="w-5 h-5 text-muted-foreground/50" />
         </motion.div>
