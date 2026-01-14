@@ -39,7 +39,7 @@ const HeroSection = () => {
       behavior: "smooth"
     });
   };
-  return <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-40 -z-10" style={{
       backgroundImage: `url(${heroPattern})`,
