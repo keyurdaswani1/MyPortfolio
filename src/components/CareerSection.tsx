@@ -276,29 +276,106 @@ const CareerSection = ({
               ))}
             </div>
 
-            {/* Central Horizontal Timeline Line */}
-            <div className="hidden lg:block relative my-2">
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={isInView ? { scaleX: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="h-1 bg-gradient-to-r from-primary via-emerald-500 to-primary rounded-full origin-left"
+            {/* Zigzag Timeline Connector */}
+            <div className="hidden lg:block relative h-24 my-4">
+              <svg 
+                className="w-full h-full absolute inset-0" 
+                viewBox="0 0 1200 80" 
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="zigzagGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" />
+                    <stop offset="50%" stopColor="hsl(142, 76%, 36%)" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  d="M0,10 L200,10 L300,70 L500,70 L600,10 L800,10 L900,70 L1000,70 L1200,10"
+                  fill="none"
+                  stroke="url(#zigzagGradient)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={isInView ? { pathLength: 1 } : {}}
+                  transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
+                />
+              </svg>
+              {/* Pointer dots on zigzag */}
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{ delay: 0.6, type: "spring" }}
+                className="absolute left-[16.5%] top-0 w-4 h-4 rounded-full bg-primary border-2 border-background shadow-lg"
               />
-              {/* Decorative dots on the line */}
-              <div className="absolute top-1/2 left-0 w-3 h-3 -translate-y-1/2 rounded-full bg-primary border-2 border-background shadow-lg" />
-              <div className="absolute top-1/2 left-1/2 w-4 h-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-primary to-emerald-500 border-2 border-background shadow-lg" />
-              <div className="absolute top-1/2 right-0 w-3 h-3 -translate-y-1/2 rounded-full bg-primary border-2 border-background shadow-lg" />
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{ delay: 0.8, type: "spring" }}
+                className="absolute left-[41.5%] bottom-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-background shadow-lg"
+              />
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{ delay: 0.7, type: "spring" }}
+                className="absolute left-1/2 -translate-x-1/2 top-0 w-5 h-5 rounded-full bg-gradient-to-r from-primary to-emerald-500 border-2 border-background shadow-lg"
+              />
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{ delay: 0.9, type: "spring" }}
+                className="absolute left-[75%] bottom-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-background shadow-lg"
+              />
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : {}}
+                transition={{ delay: 1.0, type: "spring" }}
+                className="absolute left-[83.5%] top-0 w-4 h-4 rounded-full bg-primary border-2 border-background shadow-lg"
+              />
             </div>
 
-            {/* Mobile Divider */}
-            <div className="lg:hidden flex items-center gap-4 my-8">
-              <div className="flex-1 h-0.5 bg-gradient-to-r from-transparent via-primary to-emerald-500 rounded-full" />
-              <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-emerald-500" />
-              <div className="flex-1 h-0.5 bg-gradient-to-r from-emerald-500 via-primary to-transparent rounded-full" />
+            {/* Mobile Zigzag Divider */}
+            <div className="lg:hidden relative h-16 my-6">
+              <svg 
+                className="w-full h-full" 
+                viewBox="0 0 400 60" 
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="zigzagGradientMobile" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" />
+                    <stop offset="50%" stopColor="hsl(142, 76%, 36%)" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M0,10 L100,10 L150,50 L250,50 L300,10 L400,10"
+                  fill="none"
+                  stroke="url(#zigzagGradientMobile)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-primary to-emerald-500 border-2 border-background shadow-lg" />
             </div>
+
+            {/* Education Section Label */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                <GraduationCap className="w-5 h-5 text-emerald-500" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground">Education</h3>
+            </motion.div>
 
             {/* Education Cards Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mt-4 lg:max-w-4xl lg:mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 lg:max-w-4xl lg:mx-auto">
               {educationSteps.map((step, index) => (
                 <TimelineCard 
                   key={step.title + step.period} 
@@ -309,32 +386,6 @@ const CareerSection = ({
                 />
               ))}
             </div>
-
-            {/* Education Section Label */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-3 mt-6 lg:hidden"
-            >
-              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-emerald-500" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground">Education</h3>
-            </motion.div>
-
-            {/* Desktop Education Label - positioned after timeline */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="hidden lg:flex items-center gap-3 mt-6"
-            >
-              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-emerald-500" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground">Education</h3>
-            </motion.div>
           </div>
         </motion.div>
       </div>
