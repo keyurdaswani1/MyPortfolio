@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Building2, GraduationCap } from "lucide-react";
+import { Building2, GraduationCap, ArrowRight } from "lucide-react";
 
 // Import company/institution logos
 import vizruLogo from "@/assets/vizru-logo.png";
@@ -9,215 +9,177 @@ import ibmLogo from "@/assets/ibm-logo.jpg";
 import accentureLogo from "@/assets/accenture-logo.png";
 import vesLogo from "@/assets/ves-logo.png";
 
-const experienceSteps = [
+// Timeline items in chronological order (recent to older): Vizru → Humber → IBM → Accenture → VES
+const timelineItems = [
   {
+    id: 1,
     title: "Data Analyst Co-op",
     role: "Vizru",
     period: "2025",
     icon: Building2,
     logo: vizruLogo,
+    type: "experience",
+    position: "top" as const,
     description: [
-      "Performed end-to-end data analysis using Python and SQL, from data cleaning and feature engineering to insight generation",
-      "Built and evaluated machine learning models to identify patterns, trends, and predictive signals in business data",
-      "Applied statistical analysis and ML techniques to support data-driven decision-making",
-      "Communicated analytical and ML-driven insights through clear narratives and visual summaries"
+      "Performed end-to-end data analysis using Python and SQL",
+      "Built and evaluated machine learning models for business insights",
+      "Applied statistical analysis and ML techniques",
+      "Communicated insights through clear narratives"
     ]
   },
   {
-    title: "Senior Data Consultant",
-    role: "IBM",
-    period: "2022 - 2023",
-    icon: Building2,
-    logo: ibmLogo,
-    description: [
-      "Designed and implemented large-scale data analysis workflows using Python and PySpark for high-volume datasets",
-      "Supported machine learning data pipelines by preparing, transforming, and optimizing data in Snowflake",
-      "Enabled analytical and ML use cases by delivering trusted, analytics-ready datasets",
-      "Built interactive Power BI and Tableau dashboards to surface analytical findings and model outputs for business leaders",
-      "Delivered technically robust analytics solutions aligned with enterprise ML and AI initiatives"
-    ]
-  },
-  {
-    title: "Senior Software Analyst",
-    role: "Accenture",
-    period: "2018 - 2022",
-    icon: Building2,
-    logo: accentureLogo,
-    description: [
-      "Led enterprise data analysis initiatives by integrating complex SAP data into centralized analytics platforms",
-      "Built reliable datasets using Azure Data Services to support reporting, advanced analytics, and downstream ML use cases",
-      "Designed ETL/ELT pipelines that enabled historical analysis, trend identification, and predictive modeling readiness",
-      "Partnered with business teams to translate analytical requirements into scalable data solutions"
-    ]
-  }
-];
-
-const educationSteps = [
-  {
+    id: 2,
     title: "PG in Business Insights & Analytics",
     role: "Humber Polytechnic",
     period: "2023 - 2025",
     icon: GraduationCap,
     logo: humberLogo,
+    type: "education",
+    position: "bottom" as const,
     description: [
       "Honored in Dean's Honor List",
-      "Relevant Courses: Python, SQL, Machine Learning, SPSS, Power BI, Data Governance, Big Data, R Programming, Hadoop"
+      "Courses: Python, SQL, ML, Power BI, Big Data"
     ]
   },
   {
-    title: "BE in Electronics & Telecommunication",
+    id: 3,
+    title: "Senior Data Consultant",
+    role: "IBM",
+    period: "2022 - 2023",
+    icon: Building2,
+    logo: ibmLogo,
+    type: "experience",
+    position: "top" as const,
+    description: [
+      "Large-scale data analysis with Python and PySpark",
+      "ML data pipelines in Snowflake",
+      "Power BI and Tableau dashboards"
+    ]
+  },
+  {
+    id: 4,
+    title: "Senior Software Analyst",
+    role: "Accenture",
+    period: "2018 - 2022",
+    icon: Building2,
+    logo: accentureLogo,
+    type: "experience",
+    position: "top" as const,
+    description: [
+      "Enterprise data analysis with SAP integration",
+      "Azure Data Services for analytics",
+      "ETL/ELT pipeline design"
+    ]
+  },
+  {
+    id: 5,
+    title: "BE in Electronics & Telecom",
     role: "VES Institute of Technology",
     period: "2015 - 2018",
     icon: GraduationCap,
     logo: vesLogo,
+    type: "education",
+    position: "bottom" as const,
     description: [
-      "Relevant Courses: Java, Image Processing, Neural Networks, Speech Processing, Advanced Communication"
+      "Courses: Java, Image Processing, Neural Networks"
     ]
   }
 ];
 
-interface StepType {
+interface TimelineItemType {
+  id: number;
   title: string;
   role: string;
   period: string;
   icon: typeof Building2;
   logo: string;
+  type: string;
+  position: "top" | "bottom";
   description?: string[];
 }
 
 const TimelineCard = ({ 
-  step, 
-  index, 
-  isExperience,
-  totalItems
+  item, 
+  index
 }: { 
-  step: StepType; 
+  item: TimelineItemType; 
   index: number;
-  isExperience: boolean;
-  totalItems: number;
 }) => {
   const cardRef = useRef(null);
   const isCardInView = useInView(cardRef, { once: true, margin: "-50px" });
-  const Icon = step.icon;
-  const hasDescription = step.description && step.description.length > 0;
+  const Icon = item.icon;
+  const isExperience = item.type === "experience";
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: isExperience ? 30 : -30 }}
+      initial={{ opacity: 0, y: item.position === "top" ? -20 : 20 }}
       animate={isCardInView ? { opacity: 1, y: 0 } : {}}
       transition={{
         duration: 0.6,
         delay: index * 0.1,
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
-      className="flex flex-col items-center relative"
-      style={{ flex: 1 }}
+      className="w-full h-full"
     >
-      {/* Pointer line connecting to horizontal timeline */}
-      <div 
-        className={`hidden lg:block absolute left-1/2 -translate-x-1/2 w-0.5 ${
-          isExperience 
-            ? "bottom-0 h-8 bg-gradient-to-b from-primary to-primary/50" 
-            : "top-0 h-8 bg-gradient-to-t from-emerald-500 to-emerald-500/50"
-        }`}
-      />
-      
-      {/* Pointer dot at the end of line */}
-      <div 
-        className={`hidden lg:block absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-background shadow-lg ${
-          isExperience 
-            ? "bottom-0 translate-y-1/2 bg-primary" 
-            : "top-0 -translate-y-1/2 bg-emerald-500"
-        }`}
-      />
-
-      {/* Card */}
-      <motion.div
-        initial={{ scale: 0.95 }}
-        animate={isCardInView ? { scale: 1 } : {}}
-        transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-        className={`group p-5 rounded-2xl bg-card/70 backdrop-blur-sm border border-border/50 ${
-          isExperience ? "border-primary/30 lg:mb-8" : "border-emerald-500/30 lg:mt-8"
-        } transition-all duration-300 w-full`}
+      <div
+        className={`p-4 rounded-xl bg-card/80 backdrop-blur-sm border ${
+          isExperience ? "border-primary/40" : "border-emerald-500/40"
+        } h-full`}
       >
-        <div className="flex items-center gap-4">
-          <motion.div
-            initial={{ rotate: -10, scale: 0.8 }}
-            animate={isCardInView ? { rotate: 0, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 + index * 0.1, type: "spring", stiffness: 200 }}
-            className={`relative w-14 h-14 rounded-xl flex items-center justify-center shrink-0 bg-white p-2 shadow-lg border-2 ${
-              isExperience 
-                ? "border-primary/30 shadow-primary/20" 
-                : "border-emerald-500/30 shadow-emerald-500/20"
+        <div className="flex items-center gap-3">
+          <div
+            className={`relative w-11 h-11 rounded-lg flex items-center justify-center shrink-0 bg-white p-1.5 shadow-md border ${
+              isExperience ? "border-primary/30" : "border-emerald-500/30"
             }`}
           >
-            <div className={`absolute inset-0 rounded-xl ${
-              isExperience 
-                ? "bg-gradient-to-br from-primary/10 to-transparent" 
-                : "bg-gradient-to-br from-emerald-500/10 to-transparent"
-            }`} />
             <img 
-              src={step.logo} 
-              alt={`${step.role} logo`} 
-              className="w-full h-full object-contain relative z-10"
+              src={item.logo} 
+              alt={`${item.role} logo`} 
+              className="w-full h-full object-contain"
             />
             <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${
               isExperience ? "bg-primary" : "bg-emerald-500"
             } flex items-center justify-center`}>
-              <Icon className="w-2 h-2 text-white" />
+              <Icon className="w-1.5 h-1.5 text-white" />
             </div>
-          </motion.div>
+          </div>
           <div className="flex-1 min-w-0">
-            <h4 className={`font-bold text-base leading-tight ${
+            <h4 className={`font-bold text-sm leading-tight ${
               isExperience ? "text-primary" : "text-emerald-500"
             }`}>
-              {step.title}
+              {item.title}
             </h4>
-            <p className="text-sm text-muted-foreground font-medium truncate">{step.role}</p>
+            <p className="text-xs text-muted-foreground font-medium truncate">{item.role}</p>
           </div>
         </div>
         
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isCardInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-          className="mt-3"
-        >
-          <span className={`inline-block text-xs font-mono px-2.5 py-1 rounded-md ${
+        <div className="mt-2">
+          <span className={`inline-block text-xs font-mono px-2 py-0.5 rounded ${
             isExperience 
               ? "text-primary bg-primary/10" 
               : "text-emerald-500 bg-emerald-500/10"
           }`}>
-            {step.period}
+            {item.period}
           </span>
-        </motion.div>
+        </div>
 
-        {hasDescription && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isCardInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-          >
-            <ul className="mt-4 space-y-2 text-left border-t border-border/30 pt-3">
-              {step.description?.map((item, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={isCardInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 + i * 0.03 }}
-                  className="flex gap-2 text-sm text-foreground/80"
-                >
-                  <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${
-                    isExperience ? "bg-primary" : "bg-emerald-500"
-                  }`} />
-                  <span className="leading-relaxed">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
+        {item.description && item.description.length > 0 && (
+          <ul className="mt-2 space-y-1 text-left border-t border-border/30 pt-2">
+            {item.description?.map((desc, i) => (
+              <li
+                key={i}
+                className="flex gap-1.5 text-xs text-foreground/80"
+              >
+                <span className={`mt-1 w-1 h-1 rounded-full shrink-0 ${
+                  isExperience ? "bg-primary/70" : "bg-emerald-500/70"
+                }`} />
+                <span className="leading-relaxed">{desc}</span>
+              </li>
+            ))}
+          </ul>
         )}
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
@@ -234,7 +196,7 @@ const CareerSection = ({
   });
 
   return (
-    <section id="career" className={`py-12 lg:py-16 bg-background ${className || ""}`}>
+    <section id="career" className={`py-12 lg:py-20 bg-background overflow-hidden ${className || ""}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div 
           ref={ref} 
@@ -242,149 +204,191 @@ const CareerSection = ({
           animate={isInView ? { opacity: 1, y: 0 } : {}} 
           transition={{ duration: 0.6 }}
         >
-          <div className="text-center mb-12">
+          {/* Header */}
+          <div className="text-center mb-10">
             <span className="text-primary text-sm font-semibold uppercase tracking-wider">
               Career Journey
             </span>
+            <h2 className="text-3xl font-bold mt-2 text-foreground">My Professional Path</h2>
+            <div className="flex justify-center gap-6 mt-4">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-primary"></div>
+                <span className="text-sm text-muted-foreground">Experience</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                <span className="text-sm text-muted-foreground">Education</span>
+              </div>
+            </div>
           </div>
 
-          {/* Horizontal Timeline Layout */}
-          <div className="max-w-7xl mx-auto">
-            {/* Experience Section Label */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-primary" />
+          {/* Desktop Timeline */}
+          <div className="hidden lg:block max-w-6xl mx-auto">
+            {/* Direction Indicator */}
+            <div className="flex items-center justify-between mb-6 px-2">
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-bold text-primary">2025</span>
+                <span className="text-xs text-muted-foreground">(Recent)</span>
               </div>
-              <h3 className="text-xl font-bold text-foreground">Experience</h3>
-            </motion.div>
-
-            {/* Experience Cards Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-4">
-              {experienceSteps.map((step, index) => (
-                <TimelineCard 
-                  key={step.title + step.period} 
-                  step={step} 
-                  index={index}
-                  isExperience={true}
-                  totalItems={experienceSteps.length}
-                />
-              ))}
-            </div>
-
-            {/* Zigzag Timeline Connector */}
-            <div className="hidden lg:block relative h-24 my-4">
-              <svg 
-                className="w-full h-full absolute inset-0" 
-                viewBox="0 0 1200 80" 
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <linearGradient id="zigzagGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" />
-                    <stop offset="50%" stopColor="hsl(142, 76%, 36%)" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  d="M0,10 L200,10 L300,70 L500,70 L600,10 L800,10 L900,70 L1000,70 L1200,10"
-                  fill="none"
-                  stroke="url(#zigzagGradient)"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  initial={{ pathLength: 0 }}
-                  animate={isInView ? { pathLength: 1 } : {}}
-                  transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
-                />
-              </svg>
-              {/* Pointer dots on zigzag */}
-              <motion.div 
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 0.6, type: "spring" }}
-                className="absolute left-[16.5%] top-0 w-4 h-4 rounded-full bg-primary border-2 border-background shadow-lg"
-              />
-              <motion.div 
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 0.8, type: "spring" }}
-                className="absolute left-[41.5%] bottom-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-background shadow-lg"
-              />
-              <motion.div 
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 0.7, type: "spring" }}
-                className="absolute left-1/2 -translate-x-1/2 top-0 w-5 h-5 rounded-full bg-gradient-to-r from-primary to-emerald-500 border-2 border-background shadow-lg"
-              />
-              <motion.div 
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 0.9, type: "spring" }}
-                className="absolute left-[75%] bottom-0 w-4 h-4 rounded-full bg-emerald-500 border-2 border-background shadow-lg"
-              />
-              <motion.div 
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ delay: 1.0, type: "spring" }}
-                className="absolute left-[83.5%] top-0 w-4 h-4 rounded-full bg-primary border-2 border-background shadow-lg"
-              />
-            </div>
-
-            {/* Mobile Zigzag Divider */}
-            <div className="lg:hidden relative h-16 my-6">
-              <svg 
-                className="w-full h-full" 
-                viewBox="0 0 400 60" 
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <linearGradient id="zigzagGradientMobile" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" />
-                    <stop offset="50%" stopColor="hsl(142, 76%, 36%)" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M0,10 L100,10 L150,50 L250,50 L300,10 L400,10"
-                  fill="none"
-                  stroke="url(#zigzagGradientMobile)"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-primary to-emerald-500 border-2 border-background shadow-lg" />
-            </div>
-
-            {/* Education Section Label */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-emerald-500" />
+              <div className="flex items-center gap-1 flex-1 mx-4">
+                <div className="h-px flex-1 bg-gradient-to-r from-primary to-muted-foreground/30"></div>
+                <ArrowRight className="w-4 h-4 text-muted-foreground" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">Education</h3>
-            </motion.div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-muted-foreground">(Older)</span>
+                <span className="text-sm font-bold text-muted-foreground">2015</span>
+              </div>
+            </div>
 
-            {/* Education Cards Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 lg:max-w-4xl lg:mx-auto">
-              {educationSteps.map((step, index) => (
-                <TimelineCard 
-                  key={step.title + step.period} 
-                  step={step} 
-                  index={index}
-                  isExperience={false}
-                  totalItems={educationSteps.length}
-                />
-              ))}
+            {/* 5-Column Grid Layout */}
+            <div className="relative">
+              {/* TOP ROW: Vizru (col 1), IBM (col 3), Accenture (col 4) */}
+              <div className="grid grid-cols-5 gap-3 mb-4">
+                <div className="col-span-1">
+                  <TimelineCard item={timelineItems[0]} index={0} />
+                </div>
+                <div className="col-span-1"></div>
+                <div className="col-span-1">
+                  <TimelineCard item={timelineItems[2]} index={2} />
+                </div>
+                <div className="col-span-1">
+                  <TimelineCard item={timelineItems[3]} index={3} />
+                </div>
+                <div className="col-span-1"></div>
+              </div>
+
+              {/* ZIGZAG LINE SVG */}
+              <div className="relative h-28 -my-2">
+                <svg 
+                  className="w-full h-full" 
+                  viewBox="0 0 500 100" 
+                  preserveAspectRatio="none"
+                >
+                  <defs>
+                    <linearGradient id="zigzagLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="hsl(var(--primary))" />
+                      <stop offset="20%" stopColor="hsl(142, 76%, 36%)" />
+                      <stop offset="40%" stopColor="hsl(var(--primary))" />
+                      <stop offset="60%" stopColor="hsl(var(--primary))" />
+                      <stop offset="100%" stopColor="hsl(142, 76%, 36%)" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Zigzag path connecting all 5 points */}
+                  {/* Pattern: Vizru(top) → Humber(bottom) → IBM(top) → Accenture(top) → VES(bottom) */}
+                  <motion.path
+                    d="M 50,15 L 50,50 L 150,50 L 150,85 L 250,85 L 250,50 L 350,50 L 350,15 L 450,15 L 450,50 L 450,85"
+                    fill="none"
+                    stroke="url(#zigzagLine)"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={isInView ? { pathLength: 1 } : {}}
+                    transition={{ duration: 1.8, delay: 0.4, ease: "easeInOut" }}
+                  />
+                  
+                  {/* Pointer circles on the zigzag */}
+                  {/* 1. Vizru - top position */}
+                  <motion.circle
+                    cx="50" cy="15"
+                    r="7"
+                    fill="hsl(var(--primary))"
+                    stroke="hsl(var(--background))"
+                    strokeWidth="2"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
+                  />
+                  
+                  {/* 2. Humber - bottom position */}
+                  <motion.circle
+                    cx="150" cy="85"
+                    r="7"
+                    fill="hsl(142, 76%, 36%)"
+                    stroke="hsl(var(--background))"
+                    strokeWidth="2"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+                  />
+                  
+                  {/* 3. IBM - top position */}
+                  <motion.circle
+                    cx="250" cy="15"
+                    r="7"
+                    fill="hsl(var(--primary))"
+                    stroke="hsl(var(--background))"
+                    strokeWidth="2"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: 1.0, type: "spring", stiffness: 200 }}
+                  />
+                  
+                  {/* 4. Accenture - top position */}
+                  <motion.circle
+                    cx="350" cy="15"
+                    r="7"
+                    fill="hsl(var(--primary))"
+                    stroke="hsl(var(--background))"
+                    strokeWidth="2"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
+                  />
+                  
+                  {/* 5. VES - bottom position */}
+                  <motion.circle
+                    cx="450" cy="85"
+                    r="7"
+                    fill="hsl(142, 76%, 36%)"
+                    stroke="hsl(var(--background))"
+                    strokeWidth="2"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ delay: 1.4, type: "spring", stiffness: 200 }}
+                  />
+                </svg>
+              </div>
+
+              {/* BOTTOM ROW: Humber (col 2), VES (col 5) */}
+              <div className="grid grid-cols-5 gap-3 mt-4">
+                <div className="col-span-1"></div>
+                <div className="col-span-1">
+                  <TimelineCard item={timelineItems[1]} index={1} />
+                </div>
+                <div className="col-span-1"></div>
+                <div className="col-span-1"></div>
+                <div className="col-span-1">
+                  <TimelineCard item={timelineItems[4]} index={4} />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Timeline - Vertical */}
+          <div className="lg:hidden max-w-lg mx-auto">
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-emerald-500 via-primary via-primary to-emerald-500 rounded-full"></div>
+              
+              <div className="space-y-4">
+                {timelineItems.map((item, index) => (
+                  <div key={item.id} className="relative pl-12">
+                    {/* Point on the line */}
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : {}}
+                      transition={{ delay: 0.2 + index * 0.1, type: "spring" }}
+                      className={`absolute left-2 top-5 w-5 h-5 rounded-full border-2 border-background shadow-lg ${
+                        item.type === "experience" ? "bg-primary" : "bg-emerald-500"
+                      }`}
+                    />
+                    
+                    <TimelineCard item={item} index={index} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
