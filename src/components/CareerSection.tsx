@@ -250,18 +250,6 @@ const CareerSection = ({
 
           {/* Horizontal Timeline Layout */}
           <div className="max-w-7xl mx-auto">
-            {/* Experience Section Label */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-3 mb-6"
-            >
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Building2 className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground">Experience</h3>
-            </motion.div>
 
             {/* Experience Cards Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-4">
@@ -310,31 +298,6 @@ const CareerSection = ({
               ))}
             </div>
 
-            {/* Education Section Label */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center gap-3 mt-6 lg:hidden"
-            >
-              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-emerald-500" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground">Education</h3>
-            </motion.div>
-
-            {/* Desktop Education Label - positioned after timeline */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="hidden lg:flex items-center gap-3 mt-6"
-            >
-              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-emerald-500" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground">Education</h3>
-            </motion.div>
           </div>
         </motion.div>
       </div>
