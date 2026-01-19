@@ -5,7 +5,7 @@ import profileImage from "@/assets/keyur-profile.png";
 import heroPattern from "@/assets/hero-pattern.png";
 
 // Import certification badge images
-import microsoftPL300Badge from "@/assets/microsoft-pl300-badge.jpg";
+import microsoftPL300Badge from "@/assets/microsoft-pl300-badge.png";
 import azureAIBadge from "@/assets/azure-ai-badge.png";
 import azureAZBadge from "@/assets/azure-az-badge.png";
 import azureDPBadge from "@/assets/azure-dp-badge.png";
