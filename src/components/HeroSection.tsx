@@ -148,12 +148,12 @@ const HeroSection = () => {
             </div>
             
             {/* Company Logos - Uniform with Certifications */}
-            <div className="flex items-center gap-3">
-              <div className="group flex items-center justify-center w-20 h-20 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105">
-                <img src={ibmLogo} alt="IBM" className="w-12 h-12 object-contain" />
+            <div className="flex items-center gap-4">
+              <div className="group w-14 h-14 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={ibmLogo} alt="IBM" className="w-full h-full object-contain" />
               </div>
-              <div className="group flex items-center justify-center w-20 h-20 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105">
-                <img src={accentureLogo} alt="Accenture" className="w-12 h-12 object-contain" />
+              <div className="group w-14 h-14 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" />
               </div>
             </div>
 
@@ -181,7 +181,7 @@ const HeroSection = () => {
             </div>
             
             {/* Certification Badges - Uniform Grid */}
-            <div className="flex flex-wrap gap-3 lg:justify-end">
+            <div className="flex flex-wrap gap-4 lg:justify-end">
               {certifications.map((cert, index) => (
                 <motion.a
                   key={cert.code}
@@ -191,13 +191,13 @@ const HeroSection = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1 + index * 0.1 }}
-                  className="group flex items-center justify-center w-20 h-20 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105"
+                  className="group w-14 h-14 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300"
                   title={`${cert.name} (${cert.code})`}
                 >
                   <img 
                     src={cert.badge} 
                     alt={cert.name}
-                    className="w-12 h-12 object-contain"
+                    className="w-full h-full object-contain"
                   />
                 </motion.a>
               ))}
