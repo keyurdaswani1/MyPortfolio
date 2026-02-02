@@ -140,22 +140,20 @@ const HeroSection = () => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left Side - Experience & Actions */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             {/* Experience Label */}
             <div className="flex items-center gap-2">
               <div className="h-px w-8 bg-primary/50" />
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
             </div>
             
-            {/* Company Logos */}
-            <div className="flex items-center gap-6">
-              <div className="group flex items-center gap-3 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300">
-                <img src={ibmLogo} alt="IBM" className="w-12 h-12 object-contain rounded-lg" />
-                <span className="text-sm font-medium text-foreground">IBM</span>
+            {/* Company Logos - Uniform with Certifications */}
+            <div className="flex items-center gap-3">
+              <div className="group flex items-center justify-center w-20 h-20 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105">
+                <img src={ibmLogo} alt="IBM" className="w-12 h-12 object-contain" />
               </div>
-              <div className="group flex items-center gap-3 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300">
-                <img src={accentureLogo} alt="Accenture" className="w-12 h-12 object-contain rounded-lg" />
-                <span className="text-sm font-medium text-foreground">Accenture</span>
+              <div className="group flex items-center justify-center w-20 h-20 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105">
+                <img src={accentureLogo} alt="Accenture" className="w-12 h-12 object-contain" />
               </div>
             </div>
 
@@ -175,15 +173,15 @@ const HeroSection = () => {
           </div>
 
           {/* Right Side - Certifications */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             {/* Certifications Label */}
             <div className="flex items-center gap-2 lg:justify-end">
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
               <div className="h-px w-8 bg-primary/50" />
             </div>
             
-            {/* Certification Badges - 2x2 Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-3 lg:justify-items-end">
+            {/* Certification Badges - Uniform Grid */}
+            <div className="flex flex-wrap gap-3 lg:justify-end">
               {certifications.map((cert, index) => (
                 <motion.a
                   key={cert.code}
@@ -193,18 +191,14 @@ const HeroSection = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1 + index * 0.1 }}
-                  className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105"
+                  className="group flex items-center justify-center w-20 h-20 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105"
                   title={`${cert.name} (${cert.code})`}
                 >
                   <img 
                     src={cert.badge} 
                     alt={cert.name}
-                    className="w-16 h-16 object-contain"
+                    className="w-12 h-12 object-contain"
                   />
-                  <span className="text-xs font-mono text-primary font-medium flex items-center gap-1">
-                    {cert.code}
-                    <ExternalLink className="w-2.5 h-2.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </span>
                 </motion.a>
               ))}
             </div>
