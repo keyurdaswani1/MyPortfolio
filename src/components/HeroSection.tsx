@@ -10,26 +10,30 @@ import azureAIBadge from "@/assets/azure-ai-badge.png";
 import azureAZBadge from "@/assets/azure-az-badge.png";
 import azureDPBadge from "@/assets/azure-dp-badge.png";
 
+// Import company logos
+import ibmLogo from "@/assets/ibm-logo.jpg";
+import accentureLogo from "@/assets/accenture-logo.png";
+
 const certifications = [{
   name: "Power BI Data Analyst",
   code: "PL-300",
   badge: microsoftPL300Badge,
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/"
 }, {
-  name: "Azure Fundamentals",
-  code: "AZ-900",
-  badge: azureAZBadge,
-  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/C3065EDAAE249D48?sharingId=D7A82B50A61A675A"
+  name: "Azure AI Fundamentals",
+  code: "AI-900",
+  badge: azureAIBadge,
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/5E490F2B3BCC5D60?sharingId=D7A82B50A61A675A"
 }, {
   name: "Azure Data Fundamentals",
   code: "DP-900",
   badge: azureDPBadge,
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/198FC67FBA99E598?sharingId=D7A82B50A61A675A"
 }, {
-  name: "Azure AI Fundamentals",
-  code: "AI-900",
-  badge: azureAIBadge,
-  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/5E490F2B3BCC5D60?sharingId=D7A82B50A61A675A"
+  name: "Azure Fundamentals",
+  code: "AZ-900",
+  badge: azureAZBadge,
+  url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/C3065EDAAE249D48?sharingId=D7A82B50A61A675A"
 }];
 
 const HeroSection = () => {
@@ -39,13 +43,15 @@ const HeroSection = () => {
       behavior: "smooth"
     });
   };
-  return <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+
+  return (
+    <section id="home" className="relative min-h-screen flex flex-col pt-20 overflow-hidden bg-background">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-40 -z-10" style={{
-      backgroundImage: `url(${heroPattern})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center bottom"
-    }} />
+        backgroundImage: `url(${heroPattern})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center bottom"
+      }} />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background -z-10" />
       <div className="absolute inset-0 data-grid-bg -z-10" />
 
@@ -59,114 +65,154 @@ const HeroSection = () => {
         </a>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Main Content */}
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 flex-1 flex items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           {/* Content */}
           <motion.div initial={{
-          opacity: 0,
-          x: -50
-        }} animate={{
-          opacity: 1,
-          x: 0
-        }} transition={{
-          duration: 0.8,
-          ease: "easeOut"
-        }} className="order-2 lg:order-1">
-            
-
-            
-
-            <motion.div initial={{
             opacity: 0,
-            y: 20
+            x: -50
           }} animate={{
             opacity: 1,
-            y: 0
+            x: 0
           }} transition={{
-            delay: 0.4
-          }} className="mb-8">
+            duration: 0.8,
+            ease: "easeOut"
+          }} className="order-2 lg:order-1">
+            <motion.div initial={{
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              delay: 0.4
+            }} className="mb-8">
               <p className="text-muted-foreground text-4xl">Hello, I'm</p>
               <p className="font-bold text-sidebar-primary text-5xl whitespace-nowrap sm:text-5xl">Keyur Daswani</p>
             </motion.div>
 
             <motion.p initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.5
-          }} className="text-muted-foreground mb-8 max-w-lg">I bring <span className="text-tech-blue font-medium text-muted-foreground">5+ years</span> of experience working with <span className="text-tech-blue font-medium">Vizru</span>, <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span> while helping clients across Banking & CPG sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
-
+              opacity: 0,
+              y: 20
+            }} animate={{
+              opacity: 1,
+              y: 0
+            }} transition={{
+              delay: 0.5
+            }} className="text-muted-foreground mb-8 max-w-lg">I bring <span className="text-tech-blue font-medium text-muted-foreground">5+ years</span> of experience working with <span className="text-tech-blue font-medium">Vizru</span>, <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span> while helping clients across Banking & CPG sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
           </motion.div>
 
-          {/* Profile Image & Certifications */}
+          {/* Profile Image */}
           <motion.div initial={{
-          opacity: 0,
-          scale: 0.8
-        }} animate={{
-          opacity: 1,
-          scale: 1
-        }} transition={{
-          duration: 0.8,
-          delay: 0.3
-        }} className="order-1 lg:order-2 flex flex-col items-center gap-8">
+            opacity: 0,
+            scale: 0.8
+          }} animate={{
+            opacity: 1,
+            scale: 1
+          }} transition={{
+            duration: 0.8,
+            delay: 0.3
+          }} className="order-1 lg:order-2 flex flex-col items-center">
             <div className="relative">
               {/* Animated rings */}
               <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20 blur-3xl animate-pulse-slow" />
               <div className="absolute -inset-4 rounded-full border-2 border-primary/20 animate-float" />
               <div className="absolute -inset-8 rounded-full border border-primary/10 animate-float" style={{
-              animationDelay: "1s"
-            }} />
+                animationDelay: "1s"
+              }} />
               
               {/* Image container */}
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-glow">
                 <img src={profileImage} alt="Keyur Daswani - Data Analyst" className="w-full h-full object-cover" />
               </div>
             </div>
-
-            {/* Certifications */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="w-full max-w-md"
-            >
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
-                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
-              </div>
-              <div className="grid grid-cols-4 gap-3">
-                {certifications.map((cert, index) => (
-                  <motion.a
-                    key={cert.code}
-                    href={cert.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1 + index * 0.1 }}
-                    className="group relative flex flex-col items-center gap-1 p-2 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
-                    title={`${cert.name} (${cert.code})`}
-                  >
-                    <img 
-                      src={cert.badge} 
-                      alt={cert.name}
-                      className="w-14 h-14 object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <span className="text-[10px] font-mono text-primary font-medium flex items-center gap-0.5">
-                      {cert.code}
-                      <ExternalLink className="w-2 h-2" />
-                    </span>
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
-    </section>;
+
+      {/* Hero Footer - Experience & Certifications */}
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        className="container mx-auto px-4 lg:px-8 pb-8 relative z-10"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* Left Side - Experience & Actions */}
+          <div className="space-y-6">
+            {/* Experience Label */}
+            <div className="flex items-center gap-2">
+              <div className="h-px w-8 bg-primary/50" />
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
+            </div>
+            
+            {/* Company Logos */}
+            <div className="flex items-center gap-6">
+              <div className="group flex items-center gap-3 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300">
+                <img src={ibmLogo} alt="IBM" className="w-12 h-12 object-contain rounded-lg" />
+                <span className="text-sm font-medium text-foreground">IBM</span>
+              </div>
+              <div className="group flex items-center gap-3 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300">
+                <img src={accentureLogo} alt="Accenture" className="w-12 h-12 object-contain rounded-lg" />
+                <span className="text-sm font-medium text-foreground">Accenture</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <Button variant="hero" size="default" onClick={() => handleNavClick("#projects")}>
+                View Projects
+                <ArrowRight className="ml-1 w-4 h-4" />
+              </Button>
+              <Button variant="hero-outline" size="default" asChild>
+                <a href="/resume.pdf" download>
+                  <Download className="mr-1 w-4 h-4" />
+                  Download Resume
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Side - Certifications */}
+          <div className="space-y-4">
+            {/* Certifications Label */}
+            <div className="flex items-center gap-2 lg:justify-end">
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
+              <div className="h-px w-8 bg-primary/50" />
+            </div>
+            
+            {/* Certification Badges - 2x2 Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-3 lg:justify-items-end">
+              {certifications.map((cert, index) => (
+                <motion.a
+                  key={cert.code}
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1 + index * 0.1 }}
+                  className="group relative flex flex-col items-center gap-2 p-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300 hover:scale-105"
+                  title={`${cert.name} (${cert.code})`}
+                >
+                  <img 
+                    src={cert.badge} 
+                    alt={cert.name}
+                    className="w-16 h-16 object-contain"
+                  />
+                  <span className="text-xs font-mono text-primary font-medium flex items-center gap-1">
+                    {cert.code}
+                    <ExternalLink className="w-2.5 h-2.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
 };
+
 export default HeroSection;
