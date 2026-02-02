@@ -99,46 +99,6 @@ const HeroSection = () => {
             delay: 0.5
           }} className="text-muted-foreground mb-8 max-w-lg">I bring <span className="text-tech-blue font-medium text-muted-foreground">5+ years</span> of experience working with <span className="text-tech-blue font-medium">Vizru</span>, <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span> while helping clients across Banking & CPG sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
 
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.6
-          }} className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg" onClick={() => handleNavClick("#projects")}>
-                View Projects
-                <ArrowRight className="ml-1" />
-              </Button>
-              <Button variant="hero-outline" size="lg" asChild>
-                <a href="/resume.pdf" download>
-                  <Download className="mr-1" />
-                  Download Resume
-                </a>
-              </Button>
-            </motion.div>
-
-            {/* Stats Preview */}
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.8
-          }} className="flex gap-8 mt-12 pt-8 border-t border-border">
-              <div>
-                <div className="text-3xl font-bold text-gradient">5+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-gradient">30+</div>
-                <div className="text-sm text-muted-foreground">Projects Delivered</div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Profile Image & Certifications */}
@@ -194,7 +154,7 @@ const HeroSection = () => {
                     <img 
                       src={cert.badge} 
                       alt={cert.name}
-                      className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+                      className="w-14 h-14 object-contain group-hover:scale-110 transition-transform duration-300"
                     />
                     <span className="text-[10px] font-mono text-primary font-medium flex items-center gap-0.5">
                       {cert.code}
