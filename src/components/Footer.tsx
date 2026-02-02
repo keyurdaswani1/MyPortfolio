@@ -1,4 +1,6 @@
-import { Heart, Linkedin, Github } from "lucide-react";
+import { Linkedin, Github, ArrowRight, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
 const Footer = ({
   className
 }: {
@@ -14,12 +16,23 @@ const Footer = ({
   return <footer className={`bg-background border-t border-border py-12 ${className || ''}`}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
-          <div>
+          {/* Brand & CTAs */}
+          <div className="space-y-4">
             <a href="#home" className="text-2xl font-bold text-gradient">
               Keyur Daswani
             </a>
-            
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
+                View Projects
+                <ArrowRight className="ml-1 w-4 h-4" />
+              </Button>
+              <Button variant="hero-outline" size="sm" asChild>
+                <a href="/resume.pdf" download>
+                  <Download className="mr-1 w-4 h-4" />
+                  Download Resume
+                </a>
+              </Button>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -44,10 +57,10 @@ const Footer = ({
           <div>
             <h3 className="font-semibold text-foreground mb-4">Connect</h3>
             <div className="flex gap-3">
-              <a href="https://www.linkedin.com/in/keyur-daswani/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/keyur-daswani/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-md bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://github.com/keyurdaswani1/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" aria-label="GitHub">
+              <a href="https://github.com/keyurdaswani1/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-md bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
             </div>
