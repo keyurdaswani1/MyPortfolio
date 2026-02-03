@@ -149,23 +149,23 @@ const HeroSection = () => {
             
             {/* Company Logos - Uniform with Certifications */}
             <div className="flex items-center gap-4">
-              <div className="group w-14 h-14 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={ibmLogo} alt="IBM" className="w-full h-full object-contain" />
+              <div className="group w-12 h-12 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={ibmLogo} alt="IBM" className="w-full h-full object-cover" />
               </div>
-              <div className="group w-14 h-14 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" />
+              <div className="group w-12 h-12 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-cover" />
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="default" onClick={() => handleNavClick("#projects")}>
+            <div className="flex flex-wrap gap-3">
+              <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
                 View Projects
-                <ArrowRight className="ml-1 w-4 h-4" />
+                <ArrowRight className="ml-1 w-3 h-3" />
               </Button>
-              <Button variant="hero-outline" size="default" asChild>
+              <Button variant="hero-outline" size="sm" asChild>
                 <a href="/resume.pdf" download>
-                  <Download className="mr-1 w-4 h-4" />
+                  <Download className="mr-1 w-3 h-3" />
                   Download Resume
                 </a>
               </Button>
@@ -181,7 +181,7 @@ const HeroSection = () => {
             </div>
             
             {/* Certification Badges - Uniform Grid */}
-            <div className="flex flex-wrap gap-4 lg:justify-end">
+            <div className="flex flex-wrap gap-3 lg:justify-end">
               {certifications.map((cert, index) => (
                 <motion.a
                   key={cert.code}
@@ -191,13 +191,13 @@ const HeroSection = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1 + index * 0.1 }}
-                  className="group w-14 h-14 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300"
+                  className="group w-12 h-12 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300"
                   title={`${cert.name} (${cert.code})`}
                 >
                   <img 
                     src={cert.badge} 
                     alt={cert.name}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </motion.a>
               ))}
