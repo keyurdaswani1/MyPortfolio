@@ -34,7 +34,7 @@ const AboutSection = ({ className }: { className?: string }) => {
           } : {}} transition={{
             duration: 0.6,
             delay: 0.2
-          }} className="text-lg text-foreground leading-relaxed font-normal">
+          }} className="text-lg text-foreground leading-relaxed font-normal italic">
               Over the past <strong>5+ years</strong>, I've partnered with teams at{" "}
               <span className="text-primary font-semibold">Vizru</span>,{" "}
               <span className="text-primary font-semibold">IBM</span> & {" "}
@@ -51,7 +51,7 @@ const AboutSection = ({ className }: { className?: string }) => {
           } : {}} transition={{
             duration: 0.6,
             delay: 0.4
-          }} className="leading-relaxed text-lg font-medium text-foreground">
+          }} className="leading-relaxed text-lg font-medium text-foreground italic">
               My work includes designing scalable solutions using <span className="text-primary font-semibold">Machine learning & AI</span>, along with cloud platforms such as <span className="text-primary font-semibold">Azure & Snowflake</span>. I also apply <span className="text-primary font-semibold">Python, PySpark & SQL </span> to build forecasting and predictive models, helping teams derive meaningful insights from complex datasets. To ensure those insights are accessible, I translate results into clear, intuitive <span className="text-primary font-semibold">Power BI dashboards</span> that enable business users to understand trends, risks and opportunities without needing deep technical expertise.
             </motion.p>
 
@@ -64,7 +64,7 @@ const AboutSection = ({ className }: { className?: string }) => {
           } : {}} transition={{
             duration: 0.6,
             delay: 0.6
-          }} className="leading-relaxed text-lg text-foreground">
+          }} className="leading-relaxed text-lg text-foreground italic">
               What drives me is working through messy data, aligning technical solutions with business needs and delivering insights that are reliable and actionable.
             </motion.p>
           </div>
