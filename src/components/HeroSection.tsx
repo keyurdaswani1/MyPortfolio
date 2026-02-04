@@ -13,6 +13,7 @@ import azureDPBadge from "@/assets/azure-dp-badge.png";
 // Import company logos
 import ibmLogo from "@/assets/ibm-logo.jpg";
 import accentureLogo from "@/assets/accenture-logo.png";
+import vizruLogo from "@/assets/vizru-logo.png";
 
 const certifications = [{
   name: "Power BI Data Analyst",
@@ -103,7 +104,7 @@ const HeroSection = () => {
             }} className="text-muted-foreground mb-8 max-w-lg">I bring <span className="text-tech-blue font-medium text-muted-foreground">5+ years</span> of experience working with <span className="text-tech-blue font-medium">Vizru</span>, <span className="text-tech-blue font-medium">IBM</span> & <span className="text-tech-blue font-medium">Accenture</span> while helping clients across Banking & CPG sectors. I build scalable <span className="text-tech-blue font-medium">Data Analytics & Integration</span> solutions to solve business problems.</motion.p>
           </motion.div>
 
-          {/* Profile Image */}
+          {/* Profile Image & Action Buttons */}
           <motion.div initial={{
             opacity: 0,
             scale: 0.8
@@ -127,6 +128,25 @@ const HeroSection = () => {
                 <img src={profileImage} alt="Keyur Daswani - Data Analyst" className="w-full h-full object-cover" />
               </div>
             </div>
+            
+            {/* Action Buttons - Under Profile */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap gap-3 mt-6 justify-center"
+            >
+              <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
+                View Projects
+                <ArrowRight className="ml-1 w-3 h-3" />
+              </Button>
+              <Button variant="hero-outline" size="sm" asChild>
+                <a href="/resume.pdf" download>
+                  <Download className="mr-1 w-3 h-3" />
+                  Download Resume
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -139,49 +159,16 @@ const HeroSection = () => {
         className="container mx-auto px-4 lg:px-8 pb-8 relative z-10"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Left Side - Experience & Actions */}
-          <div className="space-y-5">
-            {/* Experience Label */}
-            <div className="flex items-center gap-2">
-              <div className="h-px w-8 bg-primary/50" />
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
-            </div>
-            
-            {/* Company Logos - Uniform with Certifications */}
-            <div className="flex items-center gap-4">
-              <div className="group w-12 h-12 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={ibmLogo} alt="IBM" className="w-full h-full object-cover" />
-              </div>
-              <div className="group w-12 h-12 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-cover" />
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-3">
-              <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
-                View Projects
-                <ArrowRight className="ml-1 w-3 h-3" />
-              </Button>
-              <Button variant="hero-outline" size="sm" asChild>
-                <a href="/resume.pdf" download>
-                  <Download className="mr-1 w-3 h-3" />
-                  Download Resume
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          {/* Right Side - Certifications */}
+          {/* Left Side - Certifications */}
           <div className="space-y-5">
             {/* Certifications Label */}
-            <div className="flex items-center gap-2 lg:justify-end">
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
+            <div className="flex items-center gap-2">
               <div className="h-px w-8 bg-primary/50" />
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
             </div>
             
-            {/* Certification Badges - Uniform Grid */}
-            <div className="flex flex-wrap gap-3 lg:justify-end">
+            {/* Certification Badges - Enlarged */}
+            <div className="flex flex-wrap gap-4">
               {certifications.map((cert, index) => (
                 <motion.a
                   key={cert.code}
@@ -191,7 +178,7 @@ const HeroSection = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1 + index * 0.1 }}
-                  className="group w-12 h-12 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300"
+                  className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300"
                   title={`${cert.name} (${cert.code})`}
                 >
                   <img 
@@ -201,6 +188,28 @@ const HeroSection = () => {
                   />
                 </motion.a>
               ))}
+            </div>
+          </div>
+
+          {/* Right Side - Experience */}
+          <div className="space-y-5">
+            {/* Experience Label */}
+            <div className="flex items-center gap-2 lg:justify-end">
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
+              <div className="h-px w-8 bg-primary/50" />
+            </div>
+            
+            {/* Company Logos - Enlarged with Vizru */}
+            <div className="flex items-center gap-4 lg:justify-end">
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={vizruLogo} alt="Vizru" className="w-full h-full object-cover" />
+              </div>
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={ibmLogo} alt="IBM" className="w-full h-full object-cover" />
+              </div>
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-cover" />
+              </div>
             </div>
           </div>
         </div>
