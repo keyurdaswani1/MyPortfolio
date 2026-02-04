@@ -158,10 +158,32 @@ const HeroSection = () => {
         transition={{ delay: 0.8, duration: 0.6 }}
         className="container mx-auto px-4 lg:px-8 pb-8 relative z-10"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Left Side - Certifications */}
-          <div className="space-y-5">
-            {/* Certifications Label */}
+        <div className="space-y-6">
+          {/* Left Side - Experience & Certifications stacked */}
+          
+          {/* Experience Section */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <div className="h-px w-8 bg-primary/50" />
+              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
+            </div>
+            
+            {/* Company Logos - Enlarged with Vizru */}
+            <div className="flex items-center gap-4">
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={vizruLogo} alt="Vizru" className="w-full h-full object-cover" />
+              </div>
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={ibmLogo} alt="IBM" className="w-full h-full object-cover" />
+              </div>
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
+                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          {/* Certifications Section */}
+          <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="h-px w-8 bg-primary/50" />
               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
@@ -188,28 +210,6 @@ const HeroSection = () => {
                   />
                 </motion.a>
               ))}
-            </div>
-          </div>
-
-          {/* Right Side - Experience */}
-          <div className="space-y-5">
-            {/* Experience Label */}
-            <div className="flex items-center gap-2 lg:justify-end">
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
-              <div className="h-px w-8 bg-primary/50" />
-            </div>
-            
-            {/* Company Logos - Enlarged with Vizru */}
-            <div className="flex items-center gap-4 lg:justify-end">
-              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={vizruLogo} alt="Vizru" className="w-full h-full object-cover" />
-              </div>
-              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={ibmLogo} alt="IBM" className="w-full h-full object-cover" />
-              </div>
-              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-cover" />
-              </div>
             </div>
           </div>
         </div>
