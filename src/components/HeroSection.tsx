@@ -170,14 +170,14 @@ const HeroSection = () => {
             
             {/* Company Logos - Enlarged with Vizru */}
             <div className="flex items-center gap-4">
-              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={vizruLogo} alt="Vizru" className="w-full h-full object-cover" />
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
+                <img src={vizruLogo} alt="Vizru" className="w-full h-full object-contain" />
               </div>
-              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={ibmLogo} alt="IBM" className="w-full h-full object-cover" />
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
+                <img src={ibmLogo} alt="IBM" className="w-full h-full object-contain" />
               </div>
-              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300">
-                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-cover" />
+              <div className="group w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
+                <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
