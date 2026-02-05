@@ -38,7 +38,7 @@ const certifications = [{
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/C3065EDAAE249D48?sharingId=D7A82B50A61A675A"
 }];
 
-const greetings = ["Hello! 👋", "Bonjour! 👋", "Hola! 👋"];
+const greetings = ["Hello!👋", "Bonjour!👋", "Hola!👋"];
 
 const targetRoles = [
   "Data Science",
