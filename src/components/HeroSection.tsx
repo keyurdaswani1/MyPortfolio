@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowRight, Download, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import profileImage from "@/assets/keyur-profile.png";
 import heroPattern from "@/assets/hero-pattern.png";
 
@@ -40,8 +41,17 @@ const certifications = [{
 
 const greetings = ["Hello!", "Bonjour!", "Hola!"];
 
+const targetRoles = [
+  "Data Science",
+  "Data Analyst", 
+  "Data Engineer",
+  "BI Analyst",
+  "Data Governance"
+];
+
 const HeroSection = () => {
   const [greetingIndex, setGreetingIndex] = useState(0);
+  const [selectedRole, setSelectedRole] = useState(targetRoles[0]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -219,12 +229,38 @@ const HeroSection = () => {
               </div>
             </div>
             
+            {/* Role Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-6"
+            >
+              <p className="text-sm text-muted-foreground mb-3 text-center">Looking for roles in:</p>
+              <ToggleGroup 
+                type="single" 
+                value={selectedRole} 
+                onValueChange={(value) => value && setSelectedRole(value)}
+                className="flex flex-wrap justify-center gap-2"
+              >
+                {targetRoles.map((role) => (
+                  <ToggleGroupItem
+                    key={role}
+                    value={role}
+                    className="px-3 py-1.5 text-xs sm:text-sm rounded-full border border-primary/30 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:border-primary hover:bg-primary/10 transition-all duration-300"
+                  >
+                    {role}
+                  </ToggleGroupItem>
+                ))}
+              </ToggleGroup>
+            </motion.div>
+
             {/* Action Buttons - Right Side under profile */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-8 flex flex-wrap justify-center gap-3"
+              className="mt-10 flex flex-wrap justify-center gap-3"
             >
               <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
                 View Projects
