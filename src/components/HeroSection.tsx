@@ -119,7 +119,7 @@ const HeroSection = () => {
               className="mb-6"
             >
               <p className="text-2xl sm:text-3xl font-semibold text-foreground">
-                I am <span className="text-primary">Keyur.</span>
+                I'm <span className="text-primary">Keyur.</span>
               </p>
             </motion.div>
 
