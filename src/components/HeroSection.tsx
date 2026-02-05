@@ -138,23 +138,64 @@ const HeroSection = () => {
               </p>
             </motion.div>
 
-            {/* Action Buttons */}
+            {/* Experience & Certifications - Left Side */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-3 mt-8"
+              className="mt-8 space-y-6"
             >
-              <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
-                View Projects
-                <ArrowRight className="ml-1 w-3 h-3" />
-              </Button>
-              <Button variant="hero-outline" size="sm" asChild>
-                <a href="/resume.pdf" download>
-                  <Download className="mr-1 w-3 h-3" />
-                  Download Resume
-                </a>
-              </Button>
+              {/* Experience Section */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="h-px w-8 bg-primary/50" />
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
+                </div>
+                
+                {/* Company Logos */}
+                <div className="flex items-center gap-4">
+                  <div className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
+                    <img src={vizruLogo} alt="Vizru" className="w-full h-full object-contain" />
+                  </div>
+                  <div className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
+                    <img src={ibmLogo} alt="IBM" className="w-full h-full object-contain" />
+                  </div>
+                  <div className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
+                    <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Certifications Section */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="h-px w-8 bg-primary/50" />
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
+                </div>
+                
+                {/* Certification Badges */}
+                <div className="flex flex-wrap gap-3">
+                  {certifications.map((cert, index) => (
+                    <motion.a
+                      key={cert.code}
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.8 + index * 0.1 }}
+                      className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300"
+                      title={`${cert.name} (${cert.code})`}
+                    >
+                      <img 
+                        src={cert.badge} 
+                        alt={cert.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
@@ -178,66 +219,23 @@ const HeroSection = () => {
               </div>
             </div>
             
-            {/* Experience & Certifications under profile */}
+            {/* Action Buttons - Right Side under profile */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-8 space-y-6 w-full max-w-md"
+              className="mt-8 flex flex-wrap justify-center gap-3"
             >
-              {/* Experience Section */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-center gap-2">
-                  <div className="h-px w-8 bg-primary/50" />
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Experience</span>
-                  <div className="h-px w-8 bg-primary/50" />
-                </div>
-                
-                {/* Company Logos */}
-                <div className="flex items-center justify-center gap-4">
-                  <div className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
-                    <img src={vizruLogo} alt="Vizru" className="w-full h-full object-contain" />
-                  </div>
-                  <div className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
-                    <img src={ibmLogo} alt="IBM" className="w-full h-full object-contain" />
-                  </div>
-                  <div className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300 bg-white p-1">
-                    <img src={accentureLogo} alt="Accenture" className="w-full h-full object-contain" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Certifications Section */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-center gap-2">
-                  <div className="h-px w-8 bg-primary/50" />
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Certifications</span>
-                  <div className="h-px w-8 bg-primary/50" />
-                </div>
-                
-                {/* Certification Badges */}
-                <div className="flex flex-wrap justify-center gap-3">
-                  {certifications.map((cert, index) => (
-                    <motion.a
-                      key={cert.code}
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 1 + index * 0.1 }}
-                      className="group w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden hover:scale-110 transition-transform duration-300"
-                      title={`${cert.name} (${cert.code})`}
-                    >
-                      <img 
-                        src={cert.badge} 
-                        alt={cert.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
+              <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
+                View Projects
+                <ArrowRight className="ml-1 w-3 h-3" />
+              </Button>
+              <Button variant="hero-outline" size="sm" asChild>
+                <a href="/resume.pdf" download>
+                  <Download className="mr-1 w-3 h-3" />
+                  Download Resume
+                </a>
+              </Button>
             </motion.div>
           </motion.div>
         </div>
