@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ArrowRight, Download, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import profileImage from "@/assets/keyur-profile.png";
 import heroPattern from "@/assets/hero-pattern.png";
 
@@ -51,12 +50,19 @@ const targetRoles = [
 
 const HeroSection = () => {
   const [greetingIndex, setGreetingIndex] = useState(0);
-  const [selectedRole, setSelectedRole] = useState(targetRoles[0]);
+  const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setGreetingIndex((prev) => (prev + 1) % greetings.length);
     }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % targetRoles.length);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -234,25 +240,23 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-6"
+              className="mt-10"
             >
-              <p className="text-sm text-muted-foreground mb-3 text-center">Looking for roles in:</p>
-              <ToggleGroup 
-                type="single" 
-                value={selectedRole} 
-                onValueChange={(value) => value && setSelectedRole(value)}
-                className="flex flex-wrap justify-center gap-2"
-              >
-                {targetRoles.map((role) => (
-                  <ToggleGroupItem
-                    key={role}
-                    value={role}
-                    className="px-3 py-1.5 text-xs sm:text-sm rounded-full border border-primary/30 data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:border-primary hover:bg-primary/10 transition-all duration-300"
+              <p className="text-sm text-muted-foreground text-center mb-2">Looking for opportunities in</p>
+              <div className="h-10 overflow-hidden flex justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={roleIndex}
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -30, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="block text-lg sm:text-xl font-semibold text-primary"
                   >
-                    {role}
-                  </ToggleGroupItem>
-                ))}
-              </ToggleGroup>
+                    {targetRoles[roleIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
             </motion.div>
 
             {/* Action Buttons - Right Side under profile */}
@@ -260,7 +264,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-10 flex flex-wrap justify-center gap-3"
+              className="mt-8 flex flex-wrap justify-center gap-3"
             >
               <Button variant="hero" size="sm" onClick={() => handleNavClick("#projects")}>
                 View Projects
