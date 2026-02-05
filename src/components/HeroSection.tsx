@@ -42,9 +42,9 @@ const greetings = ["Hello!", "Bonjour!", "Hola!"];
 
 const targetRoles = [
   "Data Science",
-  "Data Analyst", 
-  "Data Engineer",
-  "BI Analyst",
+  "Data Analytics", 
+  "Data Engineering",
+  "Business Intelligence & Analytics",
   "Data Governance"
 ];
 
