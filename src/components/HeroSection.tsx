@@ -38,7 +38,7 @@ const certifications = [{
   url: "https://learn.microsoft.com/api/credentials/share/en-us/KeyurDaswani-9486/C3065EDAAE249D48?sharingId=D7A82B50A61A675A"
 }];
 
-const greetings = ["Hello!", "Bonjour!", "Hola!"];
+const greetings = ["Hello! 👋", "Bonjour! 👋", "Hola! 👋"];
 
 const targetRoles = [
   "Data Science",
@@ -135,7 +135,7 @@ const HeroSection = () => {
               className="mb-6"
             >
               <p className="text-2xl sm:text-3xl font-semibold text-foreground">
-                I'm <span className="text-primary">Keyur.</span>
+                I'm <span className="text-primary">Keyur Daswani,</span>
               </p>
             </motion.div>
 
@@ -147,7 +147,7 @@ const HeroSection = () => {
               className="space-y-4 text-muted-foreground leading-relaxed"
             >
               <p>
-                I'm a <span className="text-primary font-medium">Data Analytics specialist</span> with <span className="text-primary font-medium">5+ years</span> of experience at <span className="text-primary font-medium">IBM</span>, <span className="text-primary font-medium">Accenture</span> and <span className="text-primary font-medium">Vizru</span>. I've spent my career solving ambiguous problems for Banking and CPG clients to turn business related challenges into reliable production-scale data solutions.
+                A <span className="text-primary font-medium">Data Analytst</span> with <span className="text-primary font-medium">5+ years</span> of experience at <span className="text-primary font-medium">IBM</span>, <span className="text-primary font-medium">Accenture</span> and <span className="text-primary font-medium">Vizru</span>. I've spent my career solving ambiguous problems for Banking and CPG clients to turn business related challenges into reliable production-scale data solutions.
               </p>
               <p>
                 I have designed scalable data infrastructure solutions using <span className="text-primary font-medium">Python, SQL, Azure, Snowflake, Databricks</span> and I deliver polished visual analytics using <span className="text-primary font-medium">Power BI</span> and <span className="text-primary font-medium">Tableau</span>. Whether it's forecasting with <span className="text-primary font-medium">AI/ML</span> or integrating complex landscapes, I focus on delivering insights that are reliable, actionable and easy to use.
