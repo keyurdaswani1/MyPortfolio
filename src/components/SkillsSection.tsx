@@ -82,12 +82,12 @@ const SkillsSection = ({ className }: { className?: string }) => {
                 initial={{ opacity: 0, scale: 0.9 }} 
                 animate={isInView ? { opacity: 1, scale: 1 } : {}} 
                 transition={{ duration: 0.4, delay: 0.05 * index }} 
-                className="group flex flex-col items-center gap-3 p-5 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50 hover:border-primary/30 hover:bg-card transition-all duration-300"
+                className="group flex flex-col items-center gap-3 p-4"
               >
                 <img 
                   src={tool.image} 
                   alt={tool.name} 
-                  className="w-14 h-14 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
+                  className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className="font-medium text-foreground text-sm text-center whitespace-nowrap">{tool.name}</span>
               </motion.div>
