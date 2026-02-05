@@ -87,7 +87,7 @@ const SkillsSection = ({ className }: { className?: string }) => {
                 <img 
                   src={tool.image} 
                   alt={tool.name} 
-                  className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="w-16 h-16 object-contain rounded-xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className="font-medium text-foreground text-sm text-center whitespace-nowrap">{tool.name}</span>
               </motion.div>
