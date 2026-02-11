@@ -8,11 +8,11 @@ import torontoCrimeImage from "@/assets/toronto-crime-indicators.png";
 import fraudDetectionImage from "@/assets/fraud-detection.png";
 import customerSegmentationImage from "@/assets/customer-segmentation.png";
 const projects = [{
-  title: "Starbucks Sentiment Analysis",
-  description: "Analyzed customer reviews using PCA and KMeans clustering to identify optimal retail expansion locations and customer preferences.",
-  tags: ["Python", "Scikit-learn", "PCA", "KMeans"],
-  image: starbucksImage,
-  github: "https://github.com/keyurdaswani1/starbucks_sentiment_analysis"
+  title: "Customer Segmentation Analysis",
+  description: "Performed customer segmentation using clustering techniques to identify distinct customer groups and optimize marketing strategies.",
+  tags: ["Python", "Clustering", "Data Analysis", "Machine Learning"],
+  image: customerSegmentationImage,
+  github: "https://github.com/keyurdaswani1/Customer-Segmentation-Analysis"
 }, {
   title: "Credit Risk Analysis",
   description: "Built risk classification models using XGBoost and Random Forest to predict loan defaults and assess creditworthiness.",
@@ -20,23 +20,23 @@ const projects = [{
   image: creditRiskImage,
   github: "https://github.com/keyurdaswani1/credit-risk-analysis"
 }, {
-  title: "Major Crime Indicators (Toronto)",
-  description: "Developed interactive SQL/DAX dashboards visualizing public safety trends and crime patterns across Toronto neighborhoods.",
-  tags: ["Power BI", "SQL", "DAX", "Data Visualization"],
-  image: torontoCrimeImage,
-  github: "https://github.com/keyurdaswani1/Major_Crime_Indicators_Capstone_Project"
-}, {
   title: "Fraud Detection Analysis",
   description: "Built machine learning models to detect fraudulent transactions using anomaly detection and classification techniques.",
   tags: ["Python", "Machine Learning", "Anomaly Detection", "Classification"],
   image: fraudDetectionImage,
   github: "https://github.com/keyurdaswani1/Fraud-Detection-Analytics/"
 }, {
-  title: "Customer Segmentation Analysis",
-  description: "Performed customer segmentation using clustering techniques to identify distinct customer groups and optimize marketing strategies.",
-  tags: ["Python", "Clustering", "Data Analysis", "Machine Learning"],
-  image: customerSegmentationImage,
-  github: "https://github.com/keyurdaswani1/Customer-Segmentation-Analysis"
+  title: "Starbucks Sentiment Analysis",
+  description: "Analyzed customer reviews using PCA and KMeans clustering to identify optimal retail expansion locations and customer preferences.",
+  tags: ["Python", "Scikit-learn", "PCA", "KMeans"],
+  image: starbucksImage,
+  github: "https://github.com/keyurdaswani1/starbucks_sentiment_analysis"
+}, {
+  title: "Major Crime Indicators (Toronto)",
+  description: "Developed interactive SQL/DAX dashboards visualizing public safety trends and crime patterns across Toronto neighborhoods.",
+  tags: ["Power BI", "SQL", "DAX", "Data Visualization"],
+  image: torontoCrimeImage,
+  github: "https://github.com/keyurdaswani1/Major_Crime_Indicators_Capstone_Project"
 }];
 const ProjectsSection = ({ className }: { className?: string }) => {
   const ref = useRef(null);
