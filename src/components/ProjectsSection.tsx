@@ -61,7 +61,7 @@ const ProjectsSection = ({ className }: { className?: string }) => {
             
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {projects.map((project, index) => (
               <motion.a
                 key={project.title}
