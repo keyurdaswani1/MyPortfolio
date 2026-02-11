@@ -6,6 +6,7 @@ import starbucksImage from "@/assets/starbucks-sentiment.png";
 import creditRiskImage from "@/assets/credit-risk-analysis.png";
 import torontoCrimeImage from "@/assets/toronto-crime-indicators.png";
 import fraudDetectionImage from "@/assets/fraud-detection.png";
+import customerSegmentationImage from "@/assets/customer-segmentation.png";
 const projects = [{
   title: "Starbucks Sentiment Analysis",
   description: "Analyzed customer reviews using PCA and KMeans clustering to identify optimal retail expansion locations and customer preferences.",
@@ -30,6 +31,12 @@ const projects = [{
   tags: ["Python", "Machine Learning", "Anomaly Detection", "Classification"],
   image: fraudDetectionImage,
   github: "https://github.com/keyurdaswani1/Fraud-Detection-Analytics/"
+}, {
+  title: "Customer Segmentation Analysis",
+  description: "Performed customer segmentation using clustering techniques to identify distinct customer groups and optimize marketing strategies.",
+  tags: ["Python", "Clustering", "Data Analysis", "Machine Learning"],
+  image: customerSegmentationImage,
+  github: "https://github.com/keyurdaswani1/Customer-Segmentation-Analysis"
 }];
 const ProjectsSection = ({ className }: { className?: string }) => {
   const ref = useRef(null);
