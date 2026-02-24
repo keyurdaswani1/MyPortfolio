@@ -13,6 +13,7 @@ import mlaiLogo from "@/assets/ml-ai-logo.jpeg";
 import sapS4HanaLogo from "@/assets/sap-s4hana-logo.jpeg";
 import sapCpiLogo from "@/assets/sap-cpi-logo.jpg";
 import databricksLogo from "@/assets/databricks-logo.jpeg";
+import dbtLogo from "@/assets/dbt-logo.png";
 
 type ToolType = {
   name: string;
@@ -52,6 +53,9 @@ const tools: ToolType[] = [{
 }, {
   name: "Databricks",
   image: databricksLogo
+}, {
+  name: "dbt",
+  image: dbtLogo
 }];
 
 const SkillsSection = ({ className }: { className?: string }) => {
